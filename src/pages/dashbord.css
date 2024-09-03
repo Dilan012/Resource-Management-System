@@ -1,0 +1,49 @@
+.dashbord-main-container > div:first-child {
+   
+   display: flex;
+}
+
+.nav-drawer{
+    width: 15rem;
+   
+}
+.dashbord-content{
+    flex-grow: 1;
+    background-color: black;
+}
+
+.nav-drawer li{
+    padding-left: 10px;
+    margin-top: 0.1rem;
+    background-color: aliceblue;
+    margin-top: 0.4rem;
+    padding: 0.3rem;
+    padding-left: 1rem;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    color: rgb(61, 61, 61);
+    font-weight: 500;
+    
+}
+.nav-drawer ul{
+  
+    list-style-type: none;
+    padding: 0;
+    padding-right: 1rem;
+    padding-left: 0.5rem;
+     
+}
+.nav-drawer span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    padding: 0.3rem;
+    padding-left: 0.8rem;
+}
+
+.nav-drawer-links-1{
+    text-decoration: none;
+}
+
+.nav-drawer li:hover{
+    background-color: #449ce4;
+}
