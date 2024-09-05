@@ -1,28 +1,24 @@
 .emp-main-container{
-    padding: 1rem;
+    padding: 2rem;
     max-width: 100rem;
-    overflow: hidden;
-    
 }
 .table-container-emp{
-    width: 100%;
-    max-height: 100vh;
-    overflow: auto;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 1px 3px 0 #7c7c7c;
-    border-radius: 1rem;
+    width: 85%;
 }
-.table-container-emp::-webkit-scrollbar{
-    display: none;
-}
+
 .emp-main-container table{
     border:none;
     border-width: 0.1rem;
     width: 100%;
     border-spacing: 0;
     border-radius: 1rem;
-    padding: 1.5rem;
+    margin-top: 3rem;
 }
+.base-container-emp{
+    display: flex;
+
+}  
+
 
 .emp-main-container table th{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -38,7 +34,7 @@
 .emp-main-container table td{
     padding: 8px;
     padding: 1rem;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 0.1rem;
 }
 .emp-main-container select{
@@ -47,4 +43,82 @@
     padding: 0.5rem;
     border-radius: 0.5rem;
     
+}
+
+/* option container properties*/
+
+.emp-option-container{
+    min-width: 5rem;
+    
+}
+.emp-option-container > div:first-child{ 
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+.emp-option-container select{
+    width: 8rem;
+    background-color: #d2eefb;
+    
+}
+.emp-option-container li{
+    list-style: none;
+    align-self: center;
+}
+.emp-option-container ul{
+    padding: 0.5rem 0.5rem ;
+    background-color: rgb(255, 255, 255);
+    width: 11rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 #aeaeae;
+    padding-bottom: 1rem;
+
+}
+.emp-option-container span{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: inline-block;
+    padding-top: 0.5rem;
+    padding-bottom: 0.3rem;
+    align-self: center;
+}
+.emp-option-container h4{
+    color: #aeaeae;
+    font-size: 0.8rem;
+    padding: 0 0.4rem;
+}
+.emp-option-container img{
+    width: 1rem;
+    height: 1rem;
+}
+.emp-count-container div{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center ;
+    
+}
+.emp-count-container span{
+    padding: 0 ;
+}
+.emp-count-container{
+    width: 11rem;
+    box-shadow: 0 1px 3px 0 #c7c0c0;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+}
+
+@media (max-width:1300px){
+    .emp-option-container > div:first-child{ 
+        position: relative;
+    }
 }

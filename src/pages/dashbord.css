@@ -9,17 +9,19 @@
     background-color: #ffffff;
     box-shadow: 1px 0 0.3rem 0 #b2b2b2;
     min-height: 100vh;
-   
+    position: fixed;
+    
 }
 .dashbord-content{
     flex-grow: 1;
+    margin-left:15rem ;
   
 }
 
 .nav-drawer li{
     padding-left: 10px;
     background-color: #d7e8fd;
-    margin-top: 0.7rem;
+    margin-top: 1.4rem;
     box-shadow: 0 1px 0.3rem 0 #449ce4;
     padding: 0.3rem;
     padding-left: 1rem;
