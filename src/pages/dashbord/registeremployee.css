@@ -1,0 +1,37 @@
+.emp-reg-container form{
+    display: flex;
+  flex-wrap: wrap;
+    padding: 2rem;
+    max-width: 60rem;
+    background-color: aquamarine;
+}
+
+   
+.form-group {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+    
+  }
+
+.emp-reg-container .container-1{
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: blue;
+}
+.container-1 div{
+    flex: 1 1 0;
+}
+.container-1 input{
+    width: 100%;
+}
+.emp-reg-container .emp_num{
+    width: 100%;
+}
+.emp_num input{
+    width: 100%;
+}
+.role{
+    
+}
