@@ -1,37 +1,72 @@
-.emp-reg-container form{
+.emp-reg-container{
     display: flex;
-  flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     padding: 2rem;
-    max-width: 60rem;
-    background-color: aquamarine;
-}
-
    
-.form-group {
+}
+.emp-reg-container form{
+    padding: 5rem;
     display: flex;
-    gap: 1rem;
-    margin: 1rem;
-    
-  }
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    gap: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px 0 #000000;    
+}
 
-.emp-reg-container .container-1{
-    flex-basis: 100%;
+.emp-reg-container .form-group{
     display: flex;
-    flex-wrap: nowrap;
-    background-color: blue;
+    gap: 2rem;
+    text-align: right;
 }
-.container-1 div{
-    flex: 1 1 0;
+.emp-reg-container label{
+    width: 40%;
 }
-.container-1 input{
+.emp-reg-container input{
+    width: 20rem;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    background-color: rgb(216, 237, 255);
+}
+.emp-reg-container input:focus{
+    background-color: rgb(212, 230, 245);
+}
+.emp-reg-container select{
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgb(216, 237, 255);
+    width: 21rem;
+}
+.emp-reg-container input[type="submit"]{
+    background-color:#91fe95 ;
+    width: 10rem;
+}
+.emp-reg-container input[type="submit"]:active{
+    background-color: #47fa4d;
+}
+.emp-reg-container input[type="submit"]:hover{
+    background-color: #47fa4d;
+}
+.emp-reg-container .submit-button{
+    display: flex;
+    justify-content: right;
     width: 100%;
+    gap: 2rem;
 }
-.emp-reg-container .emp_num{
-    width: 100%;
+.emp-reg-container button{
+    border: none;
+    width: 5rem;
+    background-color: #e8ffa3;
+    border-radius: 0.5rem;
 }
-.emp_num input{
-    width: 100%;
+.emp-reg-container button:hover{
+    background-color: #f0fa85;
 }
-.role{
-    
+.emp-reg-container button:active{
+    background-color: #e3fc54;
 }
