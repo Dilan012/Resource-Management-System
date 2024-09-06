@@ -3,6 +3,9 @@ import './employee.css'
 import emp from '../../images/emp.png'
 import emp2 from '../../images/emp2.png'
 export function Employees(){
+
+
+
     const station_masters = 5
     const general_staff = 9
     const cities = ['none','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy']

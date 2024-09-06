@@ -10,6 +10,7 @@
     box-shadow: 1px 0 0.3rem 0 #b2b2b2;
     min-height: 100vh;
     position: fixed;
+    border-radius: 0.5rem;
     
 }
 .dashbord-content{
@@ -72,3 +73,4 @@
     width:2rem;
     height: 2rem;
 }
+

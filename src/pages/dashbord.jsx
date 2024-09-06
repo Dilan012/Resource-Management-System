@@ -1,5 +1,5 @@
 import { Link, Route, Routes } from 'react-router-dom'
-import admin_icon from '../images/admin.png'
+import admin_icon from '../images/emp2.png'
 import './dashbord.css'
 import { RegisterEmployee } from './dashbord/RegisterEmployee'
 import { Employees } from './dashbord/Employees'
@@ -8,6 +8,7 @@ export function DashBord(){
         <div className='dashbord-main-container'>
             <div>
                 <div className='nav-drawer'>
+                    
                     <div className='nav-drawer-header'>
                         <img src={admin_icon}/>
                         <h3>Admin Portal</h3>
