@@ -1,13 +1,13 @@
 .search-bar-cont-emp{
     display: flex;
-    height: 2rem;
+    height: 1.5rem;
     box-shadow: 0 2px 4px 0 #b7b7b7;
     border-radius: 0.5rem;
     background-color: #ffffff;
     align-items: center;
     padding: 1rem;
     gap: 1rem;
-    width: 70%;
+    width: 40%;
 }
 
 .search-bar-cont-emp input{

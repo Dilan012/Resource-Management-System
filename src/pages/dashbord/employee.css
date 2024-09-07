@@ -3,7 +3,7 @@
     max-width: 100rem;
 }
 .table-container-emp{
-    width: 85%;
+    width: 100%;
 }
 
 .emp-main-container table{
@@ -12,7 +12,7 @@
     border-width: 0.1rem;
     width: 100%;
     border-spacing: 0;
-    padding-top: 1rem;
+    padding-top: 2rem;
     
 }
 .base-container-emp{
@@ -31,9 +31,15 @@
     border-bottom: solid;
     border-width: 0.2rem;
     border-color: #9e9d9d;
+    background-color: rgb(224, 242, 253);
     
 }
-.emp-main-container tr:nth-child(even){
+
+.emp-main-container table th:first-child{
+    border-top-left-radius: 0.8rem;
+}
+.emp-main-container table th:last-child{
+    border-top-right-radius: 0.8rem;
 }
 
 .emp-main-container table td{
@@ -61,17 +67,22 @@
 
 }
 .station-master{  
-    background-color: aquamarine;
+    background-color: rgb(210, 255, 211);
     width: fit-content;
+    border: solid;
+    border-color: hsl(114, 100%, 50%);
+    border-width: 0.2rem;
     align-self: center;
-    padding: 0.5rem;
+    padding: 0.2rem;
     border-radius: 0.8rem;  
 }
 .general-staff{
-        background-color: rgb(243, 249, 183);
+        background-color: rgb(249, 221, 183);
+        border: solid rgb(255, 149, 0) ;
+        border-width: 3px;
         width: fit-content;
         align-self: center;
-        padding: 0.5rem;
+        padding: 0.2rem;
         border-radius: 0.8rem;        
     
 }
@@ -83,30 +94,24 @@
     
 }
 .emp-option-container > div:first-child{ 
-    margin: 1rem;
     display: flex;
     flex-direction: column;
-    position: fixed;
 }
 .emp-option-container select{
     width: 8rem;
     background-color: #d2eefb;
+    border-radius: 0.4rem;
+    
     
 }
+
 .emp-option-container li{
     list-style: none;
     align-self: center;
 }
 .emp-option-container ul{
-    padding: 0.5rem 0.5rem ;
-    background-color: rgb(255, 255, 255);
-    width: 11rem;
-    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px 0 #aeaeae;
-    padding-bottom: 1rem;
+    align-items: center;
 
 }
 .emp-option-container span{
@@ -152,4 +157,11 @@
     .emp-option-container > div:first-child{ 
         position: relative;
     }
+}
+
+/** head bar*/
+
+.headbar-emp{
+    display: flex;
+    align-items: center;
 }

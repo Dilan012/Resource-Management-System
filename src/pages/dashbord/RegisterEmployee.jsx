@@ -1,30 +1,33 @@
 import { useState } from 'react'
 import './registeremployee.css'
 import axios from 'axios'
+
+export const cities = [
+    'Colombo',
+    'Kandy',
+    'Galle',
+    'Jaffna',
+    'Negombo',
+    'Anuradhapura',
+    'Trincomalee',
+    'Batticaloa',
+    'Matara',
+    'Kurunegala',
+    'Puttalam',  
+    'Vavuniya',  
+    'Polonnaruwa',  
+    'Kilinochchi',  
+    'Mannar',  
+    'Vavuniya',  
+    'Mullaitivu',  
+  ];
+
 export function RegisterEmployee(){
     
     
     const [submitted , setSubmitted] = useState(false)
     
-    const cities = [
-        'Colombo',
-        'Kandy',
-        'Galle',
-        'Jaffna',
-        'Negombo',
-        'Anuradhapura',
-        'Trincomalee',
-        'Batticaloa',
-        'Matara',
-        'Kurunegala',
-        'Puttalam',  
-        'Vavuniya',  
-        'Polonnaruwa',  
-        'Kilinochchi',  
-        'Mannar',  
-        'Vavuniya',  
-        'Mullaitivu',  
-      ];
+
     const validate = function ({employee_id, fname, lname, requested_by, station, role}){
         let a = {}
         if(typeof fname !== 'string'){

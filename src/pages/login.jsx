@@ -1,5 +1,46 @@
+import { useSearchParams } from 'react-router-dom'
 import './login.css'
+import { useState } from 'react'
+import axios from 'axios'
 export function Login(){
+
+    const [data , setData] = useState({
+        employee_id:"",
+        password:""
+    })
+
+    const handlChange = (e)=>{
+       const {name, value} = e.target
+       console.log(data)
+
+        setData({
+            ...data, [name]:value
+        })
+    }
+
+    const login = (username, password)=>{
+        axios.post("http://localhost:3000/admin/login",{
+            
+                employee_id:username, password:password
+            
+        })
+        .then((response)=>{
+            console.log(response)
+        })
+        .catch((error)=>{
+
+        })
+    }
+    const onSubmit = (e)=>{
+        e.preventDefault()
+
+        login(data.employee_id, data.password)
+
+    }
+   
+        
+     
+
     return(
         <div className='login-main'>
             <div className='nav-bar-login'>
@@ -12,10 +53,10 @@ export function Login(){
                     <div className="login-form">   
                         <form>
                             <label htmlFor='username'>Username</label><br/>
-                            <input type="text" id="username"></input><br/>
+                            <input type="text" id="employee_id" onChange={handlChange} name="employee_id" value={data.username}></input><br/>
                             <label htmlFor="password">Password</label><br/>
-                            <input type="password" id="password"></input><br/>
-                            <input type="submit" cla/>
+                            <input type="password" id="password" name='password' onChange={handlChange} value={data.password}></input><br/>
+                            <input type="submit" onClick={onSubmit} />
                         </form>
                     </div>
                 </div>
