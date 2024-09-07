@@ -4,10 +4,13 @@ import './dashbord.css'
 import { RegisterEmployee } from './dashbord/RegisterEmployee'
 import { Employees } from './dashbord/Employees'
 export function DashBord(){
+
+    
     return (
         <div className='dashbord-main-container'>
             <div>
                 <div className='nav-drawer'>
+                    <div className='custom'>
                     
                     <div className='nav-drawer-header'>
                         <img src={admin_icon}/>
@@ -35,6 +38,7 @@ export function DashBord(){
                         <Link className='nav-drawer-links-1'><li>Revenue</li></Link> 
                         <Link className='nav-drawer-links-1'><li>All Devices</li></Link>   
                     </ul>
+                </div>
                 </div>
                 <div className='dashbord-content'>
                     <Routes>

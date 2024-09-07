@@ -2,27 +2,55 @@ import { SearchBarEmp } from "../../components/SearchBarEmp"
 import './employee.css'
 import emp from '../../images/emp.png'
 import emp2 from '../../images/emp2.png'
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { resolvePath } from "react-router-dom"
 export function Employees(){
 
-
+    const fetchData = ()=>{
+        axios.get('http://localhost:3000/admin/employees')
+        .then((response)=>{
+            console.log(response.data)
+            setData(response.data)
+            setFetchComplete(true)
+        })
+        .catch((error)=>{
+            console.log(error)
+            setErrorFetching(true)
+        })
+    }
+    const [fetchComplete, setFetchComplete] = useState(false);
+    const [errorFetching, setErrorFetching] = useState(false);
+    const [data1, setData] = useState(null)
+    useEffect(()=>{
+         fetchData()
+    },[])
 
     const station_masters = 5
     const general_staff = 9
     const cities = ['none','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy','gsgf','gdfgsadg','fadsgrg','gohjuoy']
    const Role = ['none','general_staff', 'station_master']
-const data =[{emp_num:12345, fname:"test secons", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test secons", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test secons", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test secons", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123}]
-    console.log(data)
+//const data =[{emp_num:12345, fname:"test secons", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test secons", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test secons", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test secons", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123},{emp_num:12345, fname:"test", lname:"test", role:'test', station:"test", approved_by:456123, requested_by:456123}]
+    
     return(
         <div className="emp-main-container">
             <SearchBarEmp/>
+            
+        {fetchComplete ? 
+                
+            
             <div className="base-container-emp">
+                
+                
                 <div className="table-container-emp">
-
+            
+            
                     <table>
                         <thead>
                             <tr>
-                                <th>Employee ID</th>
+                                
                                 <th>Name</th>
+                                <th>Employee ID</th>
                                 <th>Station</th>
                                 <th>Role</th>
                                 <th>Approved by</th>
@@ -30,14 +58,15 @@ const data =[{emp_num:12345, fname:"test secons", lname:"test", role:'test', sta
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                    
-                            {data.map((value, index)=>{
+                    { 
+                           data1 && data1.map((value, index)=>{
                                 return(
                                     <tr>
-                                        <td>{value.emp_num}</td>
-                                        <td>{value.fname.concat(" ",value.lname)}</td>
+                                        <td>{value.first_name.concat(" ",value.last_name)}</td>
+                                        <td>{value.employee_id}</td>
                                         <td>{value.station}</td>
-                                        <td>{value.station}</td>
+                                        <td className="roles" ><div className={value.role==="station_master" ? "station-master":
+                                                                                value.role==="general_staff" ? "general-staff":"" }>{value.role}</div></td>
                                         <td>{value.approved_by}</td>
                                         <td>{value.requested_by}</td>
                                         <td><select>
@@ -46,8 +75,8 @@ const data =[{emp_num:12345, fname:"test secons", lname:"test", role:'test', sta
                                             </select></td>
                                     </tr>
                                 )
-                            })}
-                    
+                            })
+                        }
                     </table>
                 </div>
                 <div className="emp-option-container">
@@ -79,7 +108,30 @@ const data =[{emp_num:12345, fname:"test secons", lname:"test", role:'test', sta
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> : 
+            
+            errorFetching ? <Error/> :
+            <Loading/> 
+            }
+        </div>
+    )}
+
+
+
+function Loading(){
+    return(
+        <div>
+            <h1>
+                loading... 
+            </h1>
+        </div>
+    )
+}
+
+function Error(){
+    return(
+        <div>
+            <h1>Error Getting Data</h1>
         </div>
     )
 }

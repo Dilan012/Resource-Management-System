@@ -18,6 +18,10 @@
     margin-left:15rem ;
   
 }
+.nav-drawer .custom{
+    max-height: 100vh;
+    overflow-y: auto;
+}
 
 .nav-drawer li{
     padding-left: 10px;

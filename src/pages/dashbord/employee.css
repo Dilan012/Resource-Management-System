@@ -7,12 +7,13 @@
 }
 
 .emp-main-container table{
-    border:none;
+    border-bottom: solid;
+    border-color: #9e9d9d;
     border-width: 0.1rem;
     width: 100%;
     border-spacing: 0;
-    border-radius: 1rem;
-    margin-top: 3rem;
+    padding-top: 1rem;
+    
 }
 .base-container-emp{
     display: flex;
@@ -21,27 +22,57 @@
 
 
 .emp-main-container table th{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-weight: 600;
-    color: rgb(247, 247, 247);
+    color: rgb(0, 0, 0);
     text-align: left;
     padding: 1rem;
-    background-color: rgb(14, 123, 166);
+    font-weight: 700;
+    border-bottom: solid;
+    border-width: 0.2rem;
+    border-color: #9e9d9d;
+    
 }
 .emp-main-container tr:nth-child(even){
-    background-color: #ecebeb;
 }
+
 .emp-main-container table td{
     padding: 8px;
     padding: 1rem;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     border-radius: 0.1rem;
+    font-weight: 550;
+    border-bottom: solid;
+    border-width: 0.1rem;
+    border-color: #d6d3d3;
 }
 .emp-main-container select{
     border: none;
     outline: none;
     padding: 0.5rem;
     border-radius: 0.5rem;
+    
+}
+.role{
+    display: flex;
+    justify-content: left;
+    align-self: center;
+    
+
+}
+.station-master{  
+    background-color: aquamarine;
+    width: fit-content;
+    align-self: center;
+    padding: 0.5rem;
+    border-radius: 0.8rem;  
+}
+.general-staff{
+        background-color: rgb(243, 249, 183);
+        width: fit-content;
+        align-self: center;
+        padding: 0.5rem;
+        border-radius: 0.8rem;        
     
 }
 
