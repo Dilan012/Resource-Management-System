@@ -20,14 +20,14 @@ export function DashBord(){
                     <ul>
                         <span>Employees</span>
 
-                        <Link className='nav-drawer-links-1' to='./registeremp'><li>add new</li></Link>
+                        <Link className='nav-drawer-links-1' to='./registeremp'><li>Add new</li></Link>
                         <Link className='nav-drawer-links-1' to='./employee'><li>Find Employee</li></Link>
                     </ul>
                     
                     <ul>
                         <span>Devices</span>
 
-                        <Link className='nav-drawer-links-1' ><li>add new</li></Link>
+                        <Link className='nav-drawer-links-1' ><li>Add new</li></Link>
                         <Link className='nav-drawer-links-1'><li>Find Device</li></Link> 
                         <Link className='nav-drawer-links-1'><li>All Devices</li></Link>   
                     </ul>
