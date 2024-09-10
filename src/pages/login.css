@@ -1,11 +1,15 @@
+
 .login-container{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    background-size: cover;
+    background: url(../images/dotted_back.jpg);
 
 }
 
+  
 .login-container > div:first-child{
     display: flex;
     flex-wrap: wrap;
@@ -33,8 +37,8 @@
     border-radius: 0.2rem;
     padding: 0.5rem;
     border-color: unset;
-    border-style: none;
-    box-shadow: 0 1px 5px 0px #5e5d5d;
+    border-style: solid;
+    
     width: 15rem;
 }
 .login-form input[type="submit"] {
