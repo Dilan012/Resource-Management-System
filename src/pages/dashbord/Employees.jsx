@@ -17,7 +17,7 @@ export function Employees(){
 
     const fetchData = (role, station)=>{
 
-        axios.get('http://localhost:3000/admin/employees',{
+        axios.get('/admin/employees',{
             params:{
                 role:role,
                 station:station
@@ -111,8 +111,8 @@ export function Employees(){
                                 <th>Employee ID</th>
                                 <th>Station</th>
                                 <th>Role</th>
-                                <th>Approved by</th>
                                 <th>Created by</th>
+                                <th>Created at</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -120,17 +120,17 @@ export function Employees(){
                            data1 && data1.map((value, index)=>{
                                 return(
                                     <tr>
-                                        <td>{value.first_name.concat(" ",value.last_name)}</td>
+                                        <td className="bold-text">{value.first_name.concat(" ",value.last_name)}</td>
                                         <td>{value.employee_id}</td>
                                         <td>{value.station}</td>
                                         <td className="roles" ><div className={value.role==="station_master" ? "station-master":
-                                                                                value.role==="general_staff" ? "general-staff":"" }>
+                                                                                value.role==="general_staff" ? "general-staff":""}  >
                                                                                     {value.role==="station_master" ? "Station Master":
                                                                                 value.role==="general_staff" ? "Staff": value.role}
                                                                                     
                                                                                     </div></td>
-                                        <td>{value.approved_by}</td>
-                                        <td>{value.requested_by}</td>
+                                        <td>{value.created_by}</td>
+                                        <td>{value.created_at}</td>
                                         <td><select>
                                                 <option>Block</option>
                                                 <option>ublock</option>

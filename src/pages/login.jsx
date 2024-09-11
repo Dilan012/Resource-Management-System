@@ -19,15 +19,17 @@ export function Login(){
     }
 
     const login = (username, password)=>{
-        axios.post("http://localhost:3000/admin/login",{
+        axios.post("/admin/login",{
             
                 employee_id:username, password:password
             
         })
         .then((response)=>{
+          console.log("proxied")
             console.log(response)
         })
         .catch((error)=>{
+            console.log(error)
 
         })
     }

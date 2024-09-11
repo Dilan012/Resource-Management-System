@@ -28,7 +28,7 @@ export function RegisterEmployee(){
     const [submitted , setSubmitted] = useState(false)
     
 
-    const validate = function ({employee_id, fname, lname, requested_by, station, role}){
+    const validate = function ({employee_id, fname, lname, station, role}){
         let a = {}
         if(typeof fname !== 'string'){
            a = {...a, fname:'Invalid Username'}
@@ -53,9 +53,7 @@ export function RegisterEmployee(){
         if(!(/^\d{5}$/.test(employee_id))){
             a = {...a, employee_id:"invalid employee number"}
         }
-        if(!(/^\d{5}$/.test(requested_by))){
-            a = {...a, requested_by:"invalid requester ID"}
-        }
+       
 
     
         if(!cities.includes(station)){
@@ -72,7 +70,8 @@ export function RegisterEmployee(){
             employee_id:"",
             station:"",
             role:"general_staff",
-            requested_by:""
+           
+            
     })
     const [error , setError]=useState({ })
 
@@ -93,7 +92,7 @@ export function RegisterEmployee(){
             employee_id:"",
             station:"",
             role:"general_staff",
-            requested_by:""
+            
     })
 
     }
@@ -113,7 +112,7 @@ export function RegisterEmployee(){
     }
 
     const register = async function(formData){
-         axios.post('http://localhost:3000/admin/createuser',formData)
+         axios.post('/admin/createuser',formData)
         .then((response)=>{
             console.log(response)
             setSubmitted(false)
@@ -123,7 +122,7 @@ export function RegisterEmployee(){
                 employee_id:"",
                 station:"",
                 role:"general_staff",
-                requested_by:""
+              
         })      
         })
         .catch((err)=>{
@@ -174,11 +173,7 @@ export function RegisterEmployee(){
                         <option value='station_master'>station_master</option>
                     </select>
                 </div>
-                <div className='form-group'>
-                    <label htmlFor='request'>Requested by</label>
-                    <input type='number' id='request' name='requested_by' value={formData.requested_by} onChange={handleChange} ></input>
-                </div> 
-                {error.requested_by ? <span className="error">* {error.requested_by} </span>: ""}
+              
 
                 <div className='submit-button'>
                     <button type='reset' onClick={reset_err} >Clear</button>

@@ -9,7 +9,6 @@
 .nav-drawer{
     width: 15rem;
     background-color: #262626;
-    box-shadow: 1px 0 0.3rem 0 #b2b2b2;
     min-height: 100vh;
     position: fixed;
     border-radius: 0.5rem;
@@ -64,6 +63,11 @@
     text-decoration: none;
 }
 
+.nav-drawer .active{
+    background-color: #78ff7a;
+    color: #000000;
+
+}
 .nav-drawer li:hover{
     background-color: #78ff7a;
     color: #000000;

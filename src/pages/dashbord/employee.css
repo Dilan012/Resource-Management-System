@@ -31,12 +31,9 @@
     color: rgb(0, 0, 0);
     text-align: left;
     padding: 1rem;
-    font-weight: 700;
-    border-bottom: solid;
-    border-width: 0.2rem;
-    border-color: #9e9d9d;
-    background-color: rgba(94, 255, 62,0.3);
-    
+    font-weight: 550;
+    background-color: rgba(190, 252, 178, 0.3);
+    font-size: 0.8rem;
 }
 
 .emp-main-container table th:first-child{
@@ -51,10 +48,13 @@
     padding: 1rem;
     font-family:Arial, Helvetica, sans-serif;
     border-radius: 0.1rem;
-    font-weight: 550;
+    font-weight: 400;
     border-bottom: solid;
     border-width: 0.1rem;
     border-color: #d6d3d3;
+}
+.emp-main-container .bold-text{
+    font-weight: 600;
 }
 .emp-main-container select{
     border: none;
@@ -78,7 +78,9 @@
     border-width: 0.2rem;
     align-self: center;
     padding: 0.2rem;
-    border-radius: 0.8rem;  
+    border-radius: 0.8rem;
+    font-weight: 600   ;
+    font-size: 0.7rem;  
 }
 .general-staff{
         background-color: rgb(249, 221, 183);
@@ -87,9 +89,10 @@
         width: fit-content;
         align-self: center;
         padding: 0.2rem;
-        padding-right: 1rem;
-        border-radius: 0.8rem;        
-    
+        padding-right: 3rem;
+        border-radius: 0.8rem;   
+        font-weight: 600 ; 
+        font-size: 0.7rem;
 }
 
 /* option container properties*/
