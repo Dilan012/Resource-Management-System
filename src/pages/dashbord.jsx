@@ -1,5 +1,9 @@
 import { Link, Route, Routes } from 'react-router-dom'
 import admin_icon from '../images/emp2.png'
+import revenue from '../images/revenue.png'
+import add from '../images/add.png'
+import ongoing from '../images/ongoing.png'
+import device from '../images/device.png'
 import './dashbord.css'
 import { RegisterEmployee } from './dashbord/RegisterEmployee'
 import { Employees } from './dashbord/Employees'
@@ -27,16 +31,14 @@ export function DashBord(){
                     <ul>
                         <span>Devices</span>
 
-                        <Link className='nav-drawer-links-1' ><li>Add new</li></Link>
-                        <Link className='nav-drawer-links-1'><li>Find Device</li></Link> 
-                        <Link className='nav-drawer-links-1'><li>All Devices</li></Link>   
+                        <Link className='nav-drawer-links-1' ><li><img src={add}/>Add new</li></Link>
+                        <Link className='nav-drawer-links-1'><li><img src={device}/>Find Device</li></Link> 
                     </ul>
                     <ul>
                         <span>Deliveries</span>
 
-                        <Link className='nav-drawer-links-1' ><li>Ongoing</li></Link>
-                        <Link className='nav-drawer-links-1'><li>Revenue</li></Link> 
-                        <Link className='nav-drawer-links-1'><li>All Devices</li></Link>   
+                        <Link className='nav-drawer-links-1' ><li><img src={ongoing}/> Ongoing</li></Link>
+                        <Link className='nav-drawer-links-1'><li><img src={revenue}/>Revenue</li></Link> 
                     </ul>
                 </div>
                 </div>

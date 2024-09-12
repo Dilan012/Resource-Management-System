@@ -1,8 +1,7 @@
 .emp-reg-container{
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+   
     padding: 2rem;
    
 }
@@ -45,8 +44,7 @@
     padding: 0.5rem;
     border: none;
     outline: none;
-    border-radius: 0.5rem;
-    background-color: rgb(216, 237, 255);
+    background-color: rgb(230, 230, 230);
 }
 .emp-reg-container input:focus{
     background-color: rgb(212, 230, 245);
@@ -55,7 +53,7 @@
     padding: 0.5rem;
     border: none;
     border-radius: 0.5rem;
-    background-color: rgb(216, 237, 255);
+    background-color: rgb(230, 230, 230);
     width: 21rem;
 }
 .emp-reg-container input[type="submit"]{

@@ -13,7 +13,7 @@
 .search-bar-cont-emp input{
     flex-grow: 1;
     border-style: none ;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 .search-bar-cont-emp input:focus{

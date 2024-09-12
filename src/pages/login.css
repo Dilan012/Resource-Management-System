@@ -2,10 +2,9 @@
 .login-container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     flex-grow: 1;
-    background-size: cover;
-    background: url(../images/dotted_back.jpg);
+  
 
 }
 
@@ -15,46 +14,54 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
+    
     border-radius: 1rem;
     padding: 1rem;
     margin: 1rem;
-    box-shadow:0 1px 10px 0px #9d9d9d;
+   
 }
 .login-header{
     flex-basis: 100%;
     text-align: center;
+    color: #ffffff;
 
 }
 
 .login-form label{
-    color: rgb(3, 54, 37);
+    color: rgb(180, 180, 180);
     font-family:Arial, Helvetica, sans-serif;
     font-weight:700;
     
 }
 .login-form input{
-    border-radius: 0.2rem;
     padding: 0.5rem;
     border-color: unset;
-    border-style: solid;
-    
+    border: none;
+    background-color: rgba(00, 01, 00, 0.1);
+    border-bottom: solid #ffffff;
+    border-width: 1px;
     width: 15rem;
+    color: #ffffff;
+}
+.login-form input:focus{
+    background-color: #9d9d9d;
 }
 .login-form input[type="submit"] {
-    background-color: #449ce4;
-    margin-left: 0.5rem;
+    background-color: rgba(24, 255, 24, 0.4);
     margin-top: 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.2rem;
+    width: 100%;
 }
 .login-form input:focus{
     outline: none;
     border: 1px;
-    box-shadow: 0 2px 8px 0 #449ce4; 
+    box-shadow: 0 2px 8px 0 #dfdfdf; 
 }
 .login-form label{
     display: inline-block;
-    padding-top: 0.7rem;
-    padding-bottom: 0.4rem;
+    padding-top: 1.5rem;
    
    
 }
@@ -64,21 +71,51 @@
 .nav-bar-login{
     display: flex;
     align-items: center;
-    background-color: #72bbf7;
+    width: 100%;
+    gap: 2rem;
+    background-color: rgba(00, 01, 00, 0.2 );
     
 }
 .nav-bar-login h1{
     font-size: 1.7rem;
     font-style: bold;
+    flex-grow: 1;
     font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff;
+    color: #00ff26;
     margin-left: 2rem;
+}
+
+.nav-bar-login .nav-items{
+    display: flex;
+    gap: 2rem;
+    margin-right: 2rem;
+    align-items: center;
+}
+.nav-items a{
+    text-decoration: none;
+    color: #00ff26;
+    padding: 0.3rem;
+}
+.nav-bar-login a{
+    color: #00ff26;
+    
+}
+
+.nav-bar-login .nav-items a:hover{
+    border-bottom: solid;
+    border-color: #00ff26;
+    border-width: 3px;
+
 }
 .login-main{
     height:100vh;
     display: flex;
     flex-direction: column;
-    background-color: #f2fbff;
-   
-
+    background: 
+    linear-gradient(to right, rgb(12, 12, 12)5% , rgba(0, 0, 0, 0)),
+    url(../images/login_back.jpg);   
+    background-size: cover;       /* This makes the image cover the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; 
+    overflow-y: auto;
 }

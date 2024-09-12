@@ -3,9 +3,10 @@ import './employee.css'
 import emp from '../../images/emp.png'
 import emp2 from '../../images/emp2.png'
 import empty from '../../images/empty.png'
+import add from '../../images/add.png'
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { resolvePath } from "react-router-dom"
+import { Link, resolvePath } from "react-router-dom"
 import { cities } from "./RegisterEmployee"
 export function Employees(){
 
@@ -81,7 +82,11 @@ export function Employees(){
                         </ul>
 
                         </div>
-                      {/*  <div className="emp-count-container">
+                        <div>
+                            <Link to='../registeremp' className="add-Link1"><button><img src={add}/>Add New</button></Link>
+                        </div>
+                    
+                      {  /*<div className="emp-count-container">
                             <div>
                                 <img src={emp}/>
                                 <span>Station Masters{' : '+station_masters}</span>
@@ -90,8 +95,8 @@ export function Employees(){
                                 <img src={emp2}/>
                                 <span>General Staff{" : "+station_masters}</span>
                             </div>
-                        </div>*/}
-                            </div>
+                            </div>*/}
+                    </div>
                 </div>
             
         {fetchComplete ?  
@@ -112,7 +117,7 @@ export function Employees(){
                                 <th>Station</th>
                                 <th>Role</th>
                                 <th>Created by</th>
-                                <th>Created at</th>
+                                <th>Join</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
