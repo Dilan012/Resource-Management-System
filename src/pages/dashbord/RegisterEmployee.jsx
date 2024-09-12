@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './registeremployee.css'
 import axios from 'axios'
+import img from '../../images/team.png'
+import { Link } from 'react-router-dom';
 
 export const cities = [
     'Colombo',
@@ -26,9 +28,10 @@ export function RegisterEmployee(){
     
     
     const [submitted , setSubmitted] = useState(false)
+    const [success, setSuccess] = useState(false)
     
 
-    const validate = function ({employee_id, fname, lname, station, role}){
+    const validate =async function ({employee_id, fname, lname, station, role}){
         let a = {}
         if(typeof fname !== 'string'){
            a = {...a, fname:'Invalid Username'}
@@ -57,7 +60,7 @@ export function RegisterEmployee(){
 
     
         if(!cities.includes(station)){
-            a = {...a, role:"invalid station"}
+            a = {...a, station:"invalid station"}
         }
 
         setError(a)
@@ -99,15 +102,15 @@ export function RegisterEmployee(){
 
     const onSubmitted = async (e)=>{
         e.preventDefault()
-        validate(formData);
+        await validate(formData);
 
         if(Object.values(error).every(value=> value===null)){
             setSubmitted(true)
             console.log("Error set")
-            register(formData);
-            
+            register(formData); 
 
         }
+
 
     }
 
@@ -116,6 +119,7 @@ export function RegisterEmployee(){
         .then((response)=>{
             console.log(response)
             setSubmitted(false)
+            setSuccess(true)
             setFormData({
                 fname:"",
                 lname:"",
@@ -134,53 +138,66 @@ export function RegisterEmployee(){
     }
 
     return(
-          <div className='emp-reg-container'>
-            <form>
+        <div className='emp-reg-container'>
+              <div className='content-white'>
+                <h2>Employee</h2>
+                <div>
+                <Link to='https://parcelmanagement.netlify.app/'><button>test User </button></Link>
+                <Link to='../employee'><button>Find Employee</button></Link>
+                </div>
+           
+                <form>
+                        <div className='form-group'>
+                            <label htmlFor='fname'>First Name</label>
+                            <input type='text' pattern="[A-Za-z]*" id='fname' onChange={handleChange} value={formData.fname} name='fname' placeholder='e.g. Jhon'></input>
+
+                        </div>
+                        {error.fname ? <span className="error">* {error.fname} </span>: ""}
+
+                        <div className='form-group'>
+                            <label htmlFor='lname'>Last Name</label>
+                            <input type='text' pattern="[A-Za-z]*" id='lname' name='lname' onChange={handleChange} value={formData.lname} placeholder='e.g. cena'></input>
+                        </div>
+                        {error.lname ? <span className="error">* {error.lname} </span>: ""}
+
                     <div className='form-group'>
-                        <label htmlFor='fname'>First Name</label>
-                        <input type='text' pattern="[A-Za-z]*" id='fname' onChange={handleChange} value={formData.fname} name='fname' placeholder='First Name'></input>
-
+                        <label htmlFor='emp_num'> Employee ID</label>
+                        <input type='number'  id='emp_num' onChange={handleChange} value={formData.employee_id} name='employee_id' placeholder='e.g. 12345'></input>
                     </div>
-                    {error.fname ? <span className="error">* {error.fname} </span>:null}
+                    {error.employee_id ? <span className="error">* {error.employee_id} </span>: ""}
 
                     <div className='form-group'>
-                        <label htmlFor='lname'>Last Name</label>
-                        <input type='text' pattern="[A-Za-z]*" id='lname' name='lname' onChange={handleChange} value={formData.lname} placeholder='Last Name'></input>
+                        <label htmlFor='station'>Station</label>
+                        <select id='station' onChange={handleChange} value={formData.station} name='station'> 
+                            <option value={null}></option>
+                            {cities.map((city, index)=>{
+                            return(  <option value={city} id={index}>{city}</option>)
+                            })}
+                        </select>
                     </div>
-                    {error.lname ? <span className="error">* {error.lname} </span>: ""}
+                    {error.station ? <span className="error">* {error.station} </span>: ""}
 
-                <div className='form-group'>
-                    <label htmlFor='emp_num'> Employee Number</label>
-                    <input type='number'  id='emp_num' onChange={handleChange} value={formData.employee_id} name='employee_id' placeholder='Employee Number'></input>
-                </div>
-                {error.employee_id ? <span className="error">* {error.employee_id} </span>: ""}
+                    <div className='form-group'>
+                        <label htmlFor='role'>Role</label>
+                        <select id='role' name='role' onChange={handleChange} value={formData.role}>
+                            <option value='general_staff'>general_staff</option>
+                            <option value='station_master'>station_master</option>
+                        </select>
+                    </div>
+                
 
-                <div className='form-group'>
-                    <label htmlFor='station'>Station</label>
-                    <select id='station' onChange={handleChange} value={formData.station} name='station'> 
-                        <option value=""></option>
-                        {cities.map((city, index)=>{
-                          return(  <option value={city} id={index}>{city}</option>)
-                        })}
-                    </select>
-                </div>
-                {error.station ? <span className="error">* {error.station} </span>: ""}
-
-                <div className='form-group'>
-                    <label htmlFor='role'>Role</label>
-                    <select id='role' name='role' onChange={handleChange} value={formData.role}>
-                        <option value='general_staff'>general_staff</option>
-                        <option value='station_master'>station_master</option>
-                    </select>
-                </div>
-              
-
-                <div className='submit-button'>
-                    <button type='reset' onClick={reset_err} >Clear</button>
-                    <input type='submit' value={submitted ? "Submitting...":"Submit"} disabled={submitted} onClick={onSubmitted}></input>
-                </div> 
-             
-            </form>
+                    <div className='submit-button'>
+                        <button type='reset' onClick={reset_err} className='reset'>Clear</button>
+                        <input type='submit' value={submitted ? "Submitting...":"Submit"} disabled={submitted} onClick={onSubmitted}></input>
+                    </div> 
+                
+                </form>
+               <div>
+                {success ?
+                <h1 style={{color:"#22a32f", fontSize:"1rem", padding:"0", margin:"0"}}>User has been registerd successfully</h1> 
+                : ""}
+               </div>
+            </div>
           </div>
 
                     

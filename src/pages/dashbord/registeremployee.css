@@ -1,29 +1,66 @@
 .emp-reg-container{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgb(20, 20, 20);
     height: 100vh;
-   
-    padding: 2rem;
-   
+    overflow: auto;
 }
-.emp-reg-container form{
-    padding: 5rem;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
+.emp-reg-container .content-white{
+    background-color: rgb(43, 43, 43);
     gap: 1.5rem;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 1px 3px 0 #000000;    
+    padding: 2rem;
+    justify-content: center;
+}
+.emp-reg-container .content-white > div{
+    display: flex;
+    gap: 1rem;
+    margin-left: 3rem;    
+} 
+.emp-reg-container .content-white h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #878787;
+}
+.emp-reg-container .content-white div button{
+    background-color: #22a32f;
+    width: fit-content;
+    text-decoration: none;
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+    border: none;
+    font-weight: 600;
+}
+
+.emp-reg-container form{
+    padding: 3rem;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(43, 43, 43);
+    gap: 0.4rem;
+    width: 42rem;
+  
 }
 
 .emp-reg-container .form-group{
     display: flex;
-    gap: 2rem;
-    text-align: right;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    text-align: left ;
+    min-width: 20rem;
+    margin-top: 1rem;
+    
 }
-.emp-reg-container span{
+
+.emp-reg-container form span{
     width: 18rem;
     text-align:justify;
-    margin-left: 41%;
+    flex: 1 1 100%;
     color: red;
     white-space: wrap;
     overflow: hidden;
@@ -32,33 +69,65 @@
     font-family: Arial, sans-serif;
     display: inline-block;
     padding: 0.4rem;
-    background-color: hsl(89, 70%, 88%);
     border-radius: 0.4rem;
 }
 
-.emp-reg-container label{
-    width: 40%;
-}
 .emp-reg-container input{
-    width: 20rem;
+    
     padding: 0.5rem;
     border: none;
     outline: none;
-    background-color: rgb(230, 230, 230);
+    border:solid;
+    border-color: rgb(132, 132, 132);
+    border-radius: 0.2rem;
+    border-width: 1px;
+    background-color: rgb(32, 32, 32);
+    flex:1 1 100%;
+    color: rgb(160, 160, 160);
+
+}
+.emp-reg-container label{
+    color: rgb(160, 160, 160);
 }
 .emp-reg-container input:focus{
-    background-color: rgb(212, 230, 245);
+    background-color: rgb(173, 173, 173);
+    color: #000000;
 }
 .emp-reg-container select{
     padding: 0.5rem;
     border: none;
-    border-radius: 0.5rem;
-    background-color: rgb(230, 230, 230);
-    width: 21rem;
+    outline: none;
+    border:solid;
+    border-radius: 0.2rem;
+    border-width: 1px;
+    background-color: rgb(32, 32, 32);
+    border-color: rgb(132, 132, 132);
+    color: rgb(160, 160, 160);
+    appearance: none;
+    cursor: pointer;
+    flex:1 1 100%;
+}
+.emp-reg-container select option{
+    background-color: #afafaf;
+}
+.emp-reg-container select option:hover{
+    background-color: #07ff0f;
+}
+
+.emp-reg-container select:focus{
+    background-color: rgb(173, 173, 173);
+    color: #000000;
+
+
+
 }
 .emp-reg-container input[type="submit"]{
-    background-color:#91fe95 ;
-    width: 10rem;
+    background-color: #22a32f;
+    border:none;
+    border-radius: 0.4rem;
+    max-width: 10rem;
+    color: #000000;
+    font-weight: 600;
 }
 .emp-reg-container input[type="submit"]:active{
     background-color: #47fa4d;
@@ -72,7 +141,7 @@
     width: 100%;
     gap: 2rem;
 }
-.emp-reg-container button{
+.emp-reg-container .submit-button .reset{
     border: none;
     width: 5rem;
     background-color: #e8ffa3;

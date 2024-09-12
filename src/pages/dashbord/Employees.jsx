@@ -57,8 +57,7 @@ export function Employees(){
     
     return(
         <div className="emp-main-container">
-            <h2>Manage Employees</h2>
-            
+            <h3>Staff Center</h3>
             <div className="headbar-emp">
             <SearchBarEmp/>
 

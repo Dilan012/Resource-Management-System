@@ -58,8 +58,9 @@ export function Login(){
             </div>
             <div className="login-container">
                 
-                <div>
-                    <h1 className='login-header'>Log into account</h1>           
+                <div> 
+                    <h1 className='login-header'>Log into Account</h1>
+                             
                     <div className="login-form">   
                         <form>
                             <label htmlFor='username'>Username</label><br/>
