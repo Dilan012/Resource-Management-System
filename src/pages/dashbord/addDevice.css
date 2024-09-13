@@ -1,0 +1,11 @@
+.add-device{
+    background-color: aqua;
+}
+
+.add-device form{
+    background-color:antiquewhite;
+}
+
+.add-device .form-group{
+    background-color: aqua;
+}

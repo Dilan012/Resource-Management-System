@@ -1,0 +1,52 @@
+.devices{
+    margin: 1rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.devices > div:first-child{
+    background-color: rgb(255, 255, 255);
+}
+.devices table{
+    border-spacing: 0;
+    margin: 1rem;
+    width: 100%;
+    max-width: 100rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.devices table th{
+    text-align: left;
+    padding: 1rem;
+}
+.devices table tr{
+    margin: 1rem;
+    border: solid;
+    border-width: 5px;
+    
+}
+.devices table td{
+    border-bottom: solid;
+    border-width: 1px;
+    padding: 1rem;
+    text-align: left;
+}
+
+.devices .in-use{
+    border: solid;
+    border-color: rgb(4, 255, 9);
+    border-radius: 1.5rem;
+    padding: 0 0.3rem;
+    background-color: rgb(196, 255, 190);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+.devices .not-in-use{
+    border: solid;
+    border-color: #1fffff;
+    background-color:#c6ffff;
+    border-radius: 1.5rem;
+    padding: 0 0.3rem;
+    font-size: 0.8rem;
+    font-weight:600;
+}

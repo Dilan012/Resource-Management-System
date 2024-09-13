@@ -7,6 +7,8 @@ import device from '../images/device.png'
 import './dashbord.css'
 import { RegisterEmployee } from './dashbord/RegisterEmployee'
 import { Employees } from './dashbord/Employees'
+import { AddDevice } from './dashbord/addDevice'
+import { Devices } from './dashbord/Devices'
 export function DashBord(){
 
     
@@ -31,8 +33,8 @@ export function DashBord(){
                     <ul>
                         <span>Devices</span>
 
-                        <Link className='nav-drawer-links-1' ><li><img src={add}/>Add new</li></Link>
-                        <Link className='nav-drawer-links-1'><li><img src={device}/>Find Device</li></Link> 
+                        <Link className='nav-drawer-links-1'to='./addDevice'><li><img src={add}/>Add new</li></Link>
+                        <Link className='nav-drawer-links-1' to='./devices'><li><img src={device}/>Find Device</li></Link> 
                     </ul>
                     <ul>
                         <span>Deliveries</span>
@@ -46,6 +48,8 @@ export function DashBord(){
                     <Routes>
                         <Route path='/registeremp' element={<RegisterEmployee/>}/>
                         <Route path='/employee' element={<Employees/>}/>
+                        <Route path='/addDevice' element={<AddDevice/>}/>
+                        <Route path='/devices' element={<Devices/>}/>
                     </Routes>
                 </div>
             </div>

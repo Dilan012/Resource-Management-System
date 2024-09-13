@@ -8,6 +8,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, resolvePath } from "react-router-dom"
 import { cities } from "./RegisterEmployee"
+
 export function Employees(){
 
     const [fetchComplete, setFetchComplete] = useState(false);
@@ -19,19 +20,16 @@ export function Employees(){
     const fetchData = (role, station)=>{
 
         axios.get('/admin/employees',{
-            params:{
-                role:role,
-                station:station
-            }
+            params:{ role:role,station:station}
         })
         .then((response)=>{
             console.log(response.data)
             if(!response.data.Error){
-
                 setData(response.data)
                 setFetchComplete(true)
             }else{
                 setData(null)
+                
             }
         })
         .catch((error)=>{
@@ -42,6 +40,7 @@ export function Employees(){
 
     const onStationChange = (e)=>{
         setStation(e.target.value)
+        
     }
     const onRoleChange = (e)=>{
         setRole(e.target.value);
