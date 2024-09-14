@@ -11,7 +11,9 @@
 .table-container-emp{
     width: 100%;
 }
-
+.emp-main-container .search-bar{
+    width:35%
+}
 .emp-main-container table{
     border-bottom: solid;
     border-color: #9e9d9d;
@@ -75,24 +77,23 @@
 .station-master{  
     background-color: rgb(210, 255, 211);
     width: fit-content;
-    border: solid;
-    border-color: hsl(114, 100%, 50%);
+    border: none;
     border-width: 0.2rem;
     align-self: center;
-    padding: 0.2rem;
+    padding: 0.5rem 0.6rem;
     border-radius: 0.8rem;
     font-weight: 600   ;
     font-size: 0.7rem;  
 }
 .general-staff{
         background-color: rgb(249, 215, 183);
-        border: solid rgb(255, 140, 0) ;
+       
         border-width: 3px;
         width: fit-content;
         align-self: center;
-        padding: 0.2rem;
-        padding-right: 3rem;
-        border-radius: 0.8rem;   
+        padding: 0.5rem 0.6rem;
+        border-radius: 0.8rem;
+
         font-weight: 600 ; 
         font-size: 0.7rem;
 }

@@ -1,16 +1,46 @@
 .devices{
-    margin: 1rem;
+    margin: 1rem 2rem 1rem 1rem;
     background-color: #ffffff;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    border-radius: 0.8rem;
+    min-height: 100vh;
+    padding: 1rem;
 }
-.devices > div:first-child{
-    background-color: rgb(255, 255, 255);
+.devices > div{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 5rem;
+}
+.devices .search-bar{
+    width:40rem
+}
+.devices .filter{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+.devices .filter span{
+    font-weight: 600;
+    color: #727272;
+}
+.devices .filter select{
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px 0px #adadad;
+    border-radius: 0.5rem;
+}
+.devices > span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 2rem 0 0 1rem;
 }
 .devices table{
     border-spacing: 0;
-    margin: 1rem;
+    margin-top: 2rem;
     width: 100%;
     max-width: 100rem;
     font-family: Arial, Helvetica, sans-serif;
@@ -18,6 +48,15 @@
 .devices table th{
     text-align: left;
     padding: 1rem;
+    color: #adadad;
+    background-color: #dfffdf;
+    font-size: 0.8rem;
+}
+.devices table th:first-child{
+    border-top-left-radius: 0.6rem;
+}
+.devices table th:last-child{
+    border-top-right-radius: 0.6rem;
 }
 .devices table tr{
     margin: 1rem;
@@ -28,25 +67,30 @@
 .devices table td{
     border-bottom: solid;
     border-width: 1px;
-    padding: 1rem;
+    border-color: #c8c8c8;
+    padding: 1.5rem;
     text-align: left;
+}
+.devices table td span{
+    padding: 0;
 }
 
 .devices .in-use{
     border: solid;
     border-color: rgb(4, 255, 9);
     border-radius: 1.5rem;
-    padding: 0 0.3rem;
-    background-color: rgb(196, 255, 190);
+    padding: 0.2rem 0.3rem;
+    background-color: rgb(209, 248, 205);
     font-weight: 600;
     font-size: 0.8rem;
 }
+
 .devices .not-in-use{
     border: solid;
     border-color: #1fffff;
     background-color:#c6ffff;
     border-radius: 1.5rem;
-    padding: 0 0.3rem;
+    padding: 0.2rem 0.3rem;
     font-size: 0.8rem;
     font-weight:600;
 }

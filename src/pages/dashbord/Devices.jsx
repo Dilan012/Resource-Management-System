@@ -31,9 +31,18 @@ export function Devices(){
 
     return(
         <div className="devices">
+            <span>Device Manager</span>
             <div>
-                <span>Device Manager</span>
-                <SearchBarEmp/>
+                <div className='search-bar'>
+                    <SearchBarEmp/>
+                </div>
+                <div className='filter'>
+                    <span>Status</span>
+                    <select>
+                        <option>Active</option>
+                        <option>Disabled</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <table>
@@ -43,9 +52,10 @@ export function Devices(){
                             <th>Device Status</th>
                             <th>MAC ID</th>
                             <th>ICCID</th>
-                            <th>Created BY</th>
-                            <th>Created At</th>
+                            <th>Installation</th>
+                            <th>Installed by</th>
                             <th>Last Location Update</th>
+                            <th></th>
                         </tr>
                     </thead>
                     
@@ -60,9 +70,10 @@ export function Devices(){
                                 
                                 <td>{value.MAC_id}</td>
                                 <td>{value.iccid}</td>
-                                <td>{value.created_by}</td>
-                                <td>{value.created_at}</td>
+                                <td>{value.installation}</td>
+                                <td>{value.installed_by}</td>
                                 <td>{value.Last_update}</td>
+                                <td><span>&#x22EE;</span></td>
                             </tr>)
 
                         }):""}

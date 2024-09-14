@@ -1,11 +1,191 @@
+body{
+    background-color: #0d0d0d;
+
+}
 .add-device{
-    background-color: aqua;
+    width: 100%;
+    padding: 1rem;
+    height: max-content;
+    max-width: 100rem;
+    box-sizing: border-box;
+   
+    
+       
+}
+.add-device > div:first-child{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    height: fit-content;
+    padding: 1rem;
+    border-radius: 1rem;
+    
+
+
+}
+.add-device .header{
+    color: rgb(101, 101, 101);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.add-device .header span{
+    flex-grow: 1;
+}
+.add-device .header div{
+    display: flex;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+.add-device .header div span{
+    
+    font-size: 1rem;
+    color: #838383;
+    padding: 0.2rem;
+   
+}
+.add-device .header div .link-tag{
+    text-decoration: none;
 }
 
+.add-device .header div span:hover{
+    font-size: 1rem;
+    color: #000000;
+    border-bottom: solid;
+    border-width: 1px;
+   
+}
 .add-device form{
-    background-color:antiquewhite;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    justify-content: center;
+}
+.add-device .form-container{
+    display: flex;
+    border-top: solid;
+    border-width: 1px;
+    border-color: #a2a2a2;
+}
+.add-device .form-group{
+   
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+.add-device form .submit-group{
+    margin: 1rem;
+    display: flex;
+    justify-content: right;
+    gap: 2rem;
+} 
+.add-device input[type="submit"]{
+    background-color: #22a32f;
+    outline: none;
+    border: none;
+    padding:0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    color: rgb(255, 255, 255)    ;
+}
+.add-device input[type="reset"]{
+    background-color: #ffffff;
+    outline: none;
+    border: solid;
+    border-width: 1px;
+    padding:0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    color: rgb(68, 66, 66)    ;
+}
+.add-device form .form-group input{
+    background-color: rgb(255, 255, 255);
+    padding: 0.7rem;
+    color: rgb(111, 111, 111);
+    width: 20rem;
+    border-color: rgb(111, 111, 111);
+    border: solid;
+    border-width: 1px;
+    border-radius: 0.4rem;
+    outline: none;
+}
+.add-device form .form-group input:focus{
+    background-color: rgb(65, 65, 65);
+    color: rgb(255, 255, 255);
+    border-color: rgb(107, 107, 107);
+
 }
 
-.add-device .form-group{
-    background-color: aqua;
+.add-device form .form-group label{
+     color: rgb(65, 65, 65);
+     font-weight: 500;
+
+}
+.add-device .form-group select{
+    background-color: rgb(255, 255, 255);
+    padding: 0.7rem;
+    color: rgb(111, 111, 111);
+    border-radius: 0.4rem;
+    outline: none;  
+}
+.add-device form .form-group select:focus{
+    background-color: rgb(65, 65, 65);
+    color: rgb(255, 255, 255);
+    border-color: rgb(107, 107, 107);
+}
+.add-device form .form-group .error-text{
+    color: red;
+    display: inline-block; 
+    height: 1.5rem;
+ 
+}
+
+.add-device .success-message{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0rem;
+    color: #22a32f;
+    font-weight: 500;
+}
+.invisible{
+    visibility: hidden;
+}
+
+
+/* last device table decorations*/
+
+.last-device{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.last-device h1{
+    font-size: 1rem;
+
+}
+
+.last-device table{
+    
+    max-width: 75rem;
+    margin: 1rem;
+    border-spacing: 0;
+        
+}
+.last-device table th{
+    text-align: left;
+    font-size: 0.8rem;
+    color: #3c3c3c;
+    font-weight: 400;
+    padding: 0.58rem 1rem;
+    width: fit-content;
+
+    
+}
+
+.last-device td{
+    padding: 0.5rem 1rem;
 }

@@ -58,7 +58,9 @@ export function Employees(){
         <div className="emp-main-container">
             <h3>Staff Center</h3>
             <div className="headbar-emp">
-            <SearchBarEmp/>
+            <div className="search-bar">
+                <SearchBarEmp/>
+            </div>
 
             <div className="emp-option-container">
                     <div>
@@ -129,7 +131,7 @@ export function Employees(){
                                         <td className="roles" ><div className={value.role==="station_master" ? "station-master":
                                                                                 value.role==="general_staff" ? "general-staff":""}  >
                                                                                     {value.role==="station_master" ? "Station Master":
-                                                                                value.role==="general_staff" ? "Staff": value.role}
+                                                                                value.role==="general_staff" ? "General Staff": value.role}
                                                                                     
                                                                                     </div></td>
                                         <td>{value.created_by}</td>
