@@ -106,7 +106,6 @@ export function RegisterEmployee(){
 
         if(Object.values(error).every(value=> value===null)){
             setSubmitted(true)
-            console.log("Error set")
             register(formData); 
 
         }
@@ -130,7 +129,7 @@ export function RegisterEmployee(){
         })      
         })
         .catch((err)=>{
-            console.log(err.response)
+            console.log(err.response.status)
             setSubmitted(false)
         })
 

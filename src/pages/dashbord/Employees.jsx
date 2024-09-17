@@ -8,6 +8,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, resolvePath } from "react-router-dom"
 import { cities } from "./RegisterEmployee"
+import { Loading } from "../../components/loading"
 
 export function Employees(){
 
@@ -16,19 +17,20 @@ export function Employees(){
     const [data1, setData] = useState(null)
     const [station, setStation] = useState(null)
     const [role, setRole] = useState(null)
+    const [searchTerm, setSearchTerm] = useState(null)
 
     const fetchData = (role, station)=>{
 
         axios.get('/admin/employees',{
-            params:{ role:role,station:station}
+            params:{ role:role,station:station,search_term:searchTerm}
         })
         .then((response)=>{
-            console.log(response.data)
             if(!response.data.Error){
                 setData(response.data)
                 setFetchComplete(true)
             }else{
                 setData(null)
+                setFetchComplete(true)
                 
             }
         })
@@ -47,11 +49,12 @@ export function Employees(){
     }
 
     useEffect(()=>{
-         fetchData(role, station);
-    },[role, station])
+        setFetchComplete(false)
+        setTimeout(()=>{
+            fetchData(role, station);
+        },500)
+    },[role, station, searchTerm])
 
-    const station_masters = 5
-    const general_staff = 9
    const Role = ['general_staff', 'station_master']
     
     return(
@@ -59,7 +62,7 @@ export function Employees(){
             <h3>Staff Center</h3>
             <div className="headbar-emp">
             <div className="search-bar">
-                <SearchBarEmp/>
+                <SearchBarEmp setSearchTerm={setSearchTerm}/>
             </div>
 
             <div className="emp-option-container">
@@ -158,7 +161,7 @@ export function Employees(){
     )}
 
 
-
+/*
 function Loading(){
     return(
         <div>
@@ -167,7 +170,7 @@ function Loading(){
             </h1>
         </div>
     )
-}
+}*/
 
 function Error(){
     return(

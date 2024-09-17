@@ -76,21 +76,20 @@
 }
 
 .devices .in-use{
-    border: solid;
-    border-color: rgb(4, 255, 9);
+    border: none;
     border-radius: 1.5rem;
-    padding: 0.2rem 0.3rem;
+    padding: 0.4rem 0.9rem;
     background-color: rgb(209, 248, 205);
     font-weight: 600;
     font-size: 0.8rem;
 }
 
 .devices .not-in-use{
-    border: solid;
-    border-color: #1fffff;
+    border: none;
+    
     background-color:#c6ffff;
     border-radius: 1.5rem;
-    padding: 0.2rem 0.3rem;
+    padding: 0.4rem 0.9rem;
     font-size: 0.8rem;
     font-weight:600;
 }
