@@ -32,6 +32,8 @@ body{
     margin-left: 1rem;
     display: flex;
     flex-wrap: nowrap;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 .add-device .header span{
     flex-grow: 1;

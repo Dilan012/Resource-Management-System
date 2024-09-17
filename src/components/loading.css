@@ -2,7 +2,7 @@
    display: flex;
    justify-content: center;
    align-items: center; 
-   gap: 1rem;
+   gap: 1rem !important;
    margin: 3rem;
    padding: 3rem;
 }
@@ -10,33 +10,33 @@
     border-radius: 50%;
 }
 .glow1{
-    width: 2rem;
-    height: 2rem;
-    background-color: aquamarine;
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(57, 231, 48);
     animation-name: glow1;
     animation-duration: 2s;
     animation-iteration-count: infinite;
 }
 .glow2{
-    width: 2rem;
-    height: 2rem;
-    background-color: aquamarine;
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(57, 231, 48);
     animation-name: glow3;
     animation-duration: 2s;
     animation-iteration-count: infinite;
 }
 .glow3{
-    width: 2rem;
-    height: 2rem;
-    background-color: aquamarine;
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(57, 231, 48);
     animation-name: glow4;
     animation-duration: 2s;
     animation-iteration-count: infinite;
 }
 .glow4{
-    width: 2rem;
-    height: 2rem;
-    background-color: aquamarine;
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(57, 231, 48);
     animation-name: glow2;
     animation-duration: 2s;
     animation-iteration-count: infinite;

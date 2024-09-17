@@ -18,11 +18,13 @@ export function Employees(){
     const [station, setStation] = useState(null)
     const [role, setRole] = useState(null)
     const [searchTerm, setSearchTerm] = useState(null)
+    const [clickIndex, setClickIndex] = useState();
+    const [reload, setReload] = useState(false)
 
-    const fetchData = (role, station)=>{
+    const fetchData = (role, station, search_term)=>{
 
         axios.get('/admin/employees',{
-            params:{ role:role,station:station,search_term:searchTerm}
+            params:{ role:role, station:station, search_term:search_term}
         })
         .then((response)=>{
             if(!response.data.Error){
@@ -40,6 +42,18 @@ export function Employees(){
         })
     }
 
+    const promote = (id)=>{
+        axios.get('/admin/promote',{
+            params:{
+                employee_id : data1[id].employee_id
+            }
+        }).then((response)=>{
+            setReload(!reload)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    }
+
     const onStationChange = (e)=>{
         setStation(e.target.value)
         
@@ -51,15 +65,27 @@ export function Employees(){
     useEffect(()=>{
         setFetchComplete(false)
         setTimeout(()=>{
-            fetchData(role, station);
+            fetchData(role, station, searchTerm);
         },500)
-    },[role, station, searchTerm])
+    },[role, station, searchTerm, reload])
 
+    const onPromoteClick = (e)=>{
+        promote(e.target.id)
+    }
+  
+    const onActionClick = (e)=>{
+        const clicked = e.target.id
+        if(clickIndex == clicked){
+            setClickIndex(null)       
+        }else{
+            setClickIndex(clicked)
+        }
+    }
    const Role = ['general_staff', 'station_master']
     
     return(
         <div className="emp-main-container">
-            <h3>Staff Center</h3>
+            <h3>Staff Manager</h3>
             <div className="headbar-emp">
             <div className="search-bar">
                 <SearchBarEmp setSearchTerm={setSearchTerm}/>
@@ -139,10 +165,19 @@ export function Employees(){
                                                                                     </div></td>
                                         <td>{value.created_by}</td>
                                         <td>{value.created_at}</td>
-                                        <td><select>
-                                                <option>Block</option>
-                                                <option>ublock</option>
-                                            </select></td>
+                                        <td>
+                                            {value.role ==="general_staff" ? 
+                                           
+                                           <>
+                                            <button className="action" id={index} onClick={onActionClick}>...</button>
+                                            <div>
+                                                <ul className={clickIndex== index ? "action-list": "invisible"} id={index}>
+                                                    <li onClick={onPromoteClick} id={index}>promote</li> 
+                                                </ul>
+                                            </div>
+                                          </>
+                                            :   <span>Unavailable</span>}
+                                        </td>
                                     </tr>
                                 )
                             })
@@ -152,7 +187,7 @@ export function Employees(){
  
             </div> : 
 
-            <EmptyData/> :
+            <EmptyData message="There are no Users associated with the Criteria"/> :
             
             errorFetching ? <Error/> :
             <Loading/> 
@@ -180,7 +215,7 @@ function Error(){
     )
 }
 
-function EmptyData(){
+export function EmptyData({message}){
     return(
         <div style={{display:"flex"
                     ,alignItems:"center"
@@ -196,7 +231,7 @@ function EmptyData(){
                 fontSize:"1.5rem"
             }}
             >Sad no result...</span><br/>
-            <span>There are no Users associated with the Criteria</span>
+            <span>{message}</span>
             </div>
         </div>
     )

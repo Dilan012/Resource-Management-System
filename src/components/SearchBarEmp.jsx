@@ -8,22 +8,20 @@ export function SearchBarEmp({setSearchTerm}){
 
     const onChange = (e)=>{
        const {name, value} = e.target 
-       setInput({
-        ...setInput, [name]:value
-       })
+       setInput(value)
+       setSearchTerm(value)
     }
 
     const onEnterPressed = (e) =>{
         if(e.key ==="Enter"){
             setSearchTerm(input)
-            console.log(input)
         }
     }
     return(
         <div className="search-bar-cont-emp" tabIndex='0'>
             <img src={search_icon}/>
 
-            <input placeholder='Search...' onKeyUp={onEnterPressed} onChange={onChange} name="search_term"></input>
+            <input type='text' placeholder='Search...' onKeyUp={onEnterPressed} onChange={onChange} name="search_term"></input>
         </div>
     )
 }

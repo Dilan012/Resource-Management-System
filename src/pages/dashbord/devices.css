@@ -34,8 +34,9 @@
 }
 .devices > span{
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    font-size: 2rem;
+    color: rgb(101, 101, 101);
+    font-size: 1.5rem;
+    font-weight: 600;
     margin: 2rem 0 0 1rem;
 }
 .devices table{
