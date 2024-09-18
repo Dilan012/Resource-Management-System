@@ -34,9 +34,14 @@ export function AddDevice(){
             setLastDeviceError(err.response.data.Error)
         })
     }
+
     useEffect(()=>{
-        getLastDevice()
+
+        setTimeout(()=>{
+            getLastDevice()
+        },1000)
     },[success])
+
     // validate user inputs
     const validate = async (data)=>{
         return new Promise((resolve)=>{
@@ -69,6 +74,7 @@ export function AddDevice(){
         setConfilictError(null)
         
     }
+
     // send http request with data
     const sendData = (data)=>{
         axios.post('/admin/createdevice', data)
@@ -101,6 +107,7 @@ export function AddDevice(){
             setSubmitted(false)
         }
     }
+
     const reset = ()=>{
        
         setFormData({ 
@@ -111,6 +118,7 @@ export function AddDevice(){
         setSuccess(false)
         setLocalError({})
     }
+    
     return(
         <div className="add-device">
             <div>

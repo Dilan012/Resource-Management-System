@@ -1,9 +1,11 @@
 import './devices.css'
+import add from '../../images/add.png'
 import { SearchBarEmp } from "../../components/SearchBarEmp";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Loading } from '../../components/loading';
 import { EmptyData } from './Employees';
+import { Link } from 'react-router-dom';
 
 export function Devices(){
 
@@ -11,6 +13,7 @@ export function Devices(){
     const [dataFetched, setDataFetched] = useState(false)
     const [filter, setFilter] = useState({})
     const [searchTerm, setSearchTerm] = useState({})
+    const [error ,setError] = useState(null)
 
     const fetchData = ()=>{
             axios.get('/admin/alldevices',{
@@ -20,15 +23,19 @@ export function Devices(){
                 if(!response.data.Error){
                     setData(response.data)
                     setDataFetched(true)
+                    setError(null)
                     console.log(response.data)
                 }else{
                     setData(null)
                     setDataFetched(true)
+                    setError(null)
                 }
             })
             .catch((error)=>{
-                console.log(error)
-                dataFetched(true)
+                console.log(error.response)
+                setData(null)
+                setDataFetched(true)
+                setError(error.response.data.Error)
             })
         }
     
@@ -64,6 +71,9 @@ export function Devices(){
                         <option value="in_use">Active</option>
                         <option value="not_in_use">Disabled</option>
                     </select>
+                </div>
+                <div>
+                    <Link to='../addDevice' className="add-Link1"><button><img src={add}/>Add New</button></Link>
                 </div>
             </div>
             
@@ -104,8 +114,9 @@ export function Devices(){
                         </table>
                     </div>
 
-                        :   dataFetched && !data 
+                        :   dataFetched && !data && !error 
                         ?   <EmptyData message="No Devices"/>
+                        :   error ? <h1>Loading failed</h1>
                         :   <Loading/>
                         }
                    

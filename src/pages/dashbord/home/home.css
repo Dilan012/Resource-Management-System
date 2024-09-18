@@ -1,0 +1,37 @@
+.home{
+    background-color: #ffffff;
+    margin: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    max-width: 100rem;
+}
+.quick-overview-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+    width: 100%;
+    margin: 1rem 0;
+    justify-content: center;
+}
+/* quick over view component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+
+.quick-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-width: 10rem;
+    box-shadow: 0 1px 2px 1px #cacaca;
+    border-radius: 0.7rem;
+    padding: 1rem;
+}
+.home .quick-overview .data{
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.home .quick-overview .title{
+    display: flex;
+}
+.home .quick-overview .title span{
+    flex-grow: 1;
+}
