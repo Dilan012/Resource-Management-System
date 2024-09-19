@@ -35,7 +35,7 @@ export function Devices(){
                 console.log(error.response)
                 setData(null)
                 setDataFetched(true)
-                setError(error.response.data.Error)
+                setError(error)
             })
         }
     

@@ -3,15 +3,72 @@
     margin: 1rem;
     border-radius: 1rem;
     padding: 1rem;
-    max-width: 100rem;
+    max-width: 80rem;
 }
 .quick-overview-container{
     display: flex;
     flex-wrap: wrap;
     gap:2rem;
     width: 100%;
-    margin: 1rem 0;
+    margin: 0rem 0;
+}
+
+.home .body-container{
+    display: flex ;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;   
+}
+.home .body-container .title{
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.home .body-container > div{
+    display: flex ;
+    flex-direction: column;
+}
+.home .revenue{
+    flex-grow: 1.5;
+    max-width: 40rem;
+    min-width: 20rem;
+    
+}
+.home .top-station-container{
+    flex-grow: 1;
+    gap: 1.5rem;
+    align-items: center ;
+}
+
+.home .recent-activity-container{
+    flex-grow: 1;
+}
+.recent-activity-container{
+    gap: 1.5rem;
+    max-width: 30rem;
+}
+.user-percentage-container{
+  
+}
+
+@media (max-width:1100px){
+
+    .home .revenue{
+        min-width:18rem;
+        max-width: 50rem;
+
+    }
+    
+    .top-station-container {
+    }
+    .recent-activity-container{
+}
+.quick-overview-container{
     justify-content: center;
+}
 }
 /* quick over view component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
 
@@ -19,7 +76,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
-    min-width: 10rem;
+    min-width: 11.5rem;
     box-shadow: 0 1px 2px 1px #cacaca;
     border-radius: 0.7rem;
     padding: 1rem;
@@ -34,4 +91,55 @@
 }
 .home .quick-overview .title span{
     flex-grow: 1;
+}
+/* top Station component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+.top-station table{
+    width: 15rem;
+    border-spacing: 0;
+    
+}
+.top-station td{
+  padding: 0.5rem;
+}
+.top-station td img{
+    width: 2rem;
+}
+
+/* Recent Activity component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+
+.home .recent-activity{
+    display: flex ;
+    flex-direction: column ;
+    gap: 1rem;
+   
+   
+    
+}
+.recent-activity > div{
+    padding-bottom: 0.2rem;
+    border-bottom: solid #dadada;
+    border-width: 1px;
+}
+.recent-activity div .description{
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    
+
+}
+.recent-activity .description img{
+    width: 1rem;
+}
+.recent-activity .description span{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+}
+.recent-activity .time{
+    margin-left: 1.8rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+/* User Percentage component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+.user-percentage{
+    margin-top: 2rem;
 }
