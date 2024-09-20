@@ -5,9 +5,28 @@
     padding: 1rem;
     max-width: 80rem;
 }
+.home .heading > div{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4a4a4a;
+    padding: 2rem;
+    display: flex;
+   
+}
+.home .heading div > span:first-child{
+    flex-grow: 1;
+}
+.home .heading .heading-links{
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    gap: 1rem;
+}
 .quick-overview-container{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap:2rem;
     width: 100%;
     margin: 0rem 0;
@@ -30,30 +49,37 @@
 .home .body-container > div{
     display: flex ;
     flex-direction: column;
+    box-sizing: border-box; 
+
+
 }
 .home .revenue{
-    flex-grow: 1.5;
-    max-width: 40rem;
+    flex-grow: 1;
+    max-width: 35rem;
     min-width: 20rem;
     
 }
 .home .top-station-container{
     flex-grow: 1;
     gap: 1.5rem;
-    align-items: center ;
+    align-items: center;
 }
 
 .home .recent-activity-container{
-    flex-grow: 1;
-}
-.recent-activity-container{
+    align-items: center;
     gap: 1.5rem;
     max-width: 30rem;
+    flex-grow: 1;
+
 }
+s
 .user-percentage-container{
   
 }
+.home .deliveries-container{
 
+
+}
 @media (max-width:1100px){
 
     .home .revenue{
@@ -70,6 +96,30 @@
     justify-content: center;
 }
 }
+@media (max-width:480px){
+
+    .home .revenue{
+        flex-basis: 100%;
+
+    }
+    .home .body-container{
+        display: flex ;
+        gap: 3rem;
+        margin-top: 1rem;   
+    }
+    
+    .top-station-container {
+        flex-basis: 50%;
+    }
+    .recent-activity-container{
+        flex-basis: 50%;
+        flex-grow: 1;
+    }
+   
+.quick-overview-container{
+    justify-content: center;
+}
+}
 /* quick over view component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
 
 .quick-overview {
@@ -77,7 +127,7 @@
     flex-direction: column;
     gap: 0.6rem;
     min-width: 11.5rem;
-    box-shadow: 0 1px 2px 1px #cacaca;
+    box-shadow: 0 1px 2px 1px #d8d8d8;
     border-radius: 0.7rem;
     padding: 1rem;
 }
@@ -142,4 +192,9 @@
 /* User Percentage component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
 .user-percentage{
     margin-top: 2rem;
+}
+
+/* Deliveries component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+.deliveries{
+
 }

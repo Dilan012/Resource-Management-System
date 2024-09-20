@@ -7,22 +7,63 @@ import station from '../../../images/station.png'
 import staff from '../../../images/employee.png'
 import device from '../../../images/device.png'
 import {DayPicker} from 'react-day-picker'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import 'react-day-picker/dist/style.css';
+import axios from "axios"
+import { Loading } from "../../../components/loading"
+import { LoadError } from "../addDevice"
 
 export const Home = ()=>{
    
+  /* fetching quick overview */
+  const [dataFetched, setDataFetched] = useState(false);
+  const [localError, setLocalError] = useState(null);
+  const [data, setData] = useState(null);
+
+  useEffect(()=>{
+   setTimeout(()=>{
+    fetchData()
+   },500)
+  },[])
+
+  const fetchData = ()=>{
+    axios.get('/summary/quicks')
+    .then((response)=>{
+      console.log(response.data)
+      setData(response.data);
+      setDataFetched(true);
+      setLocalError(false);
+    })
+    .catch((err)=>{
+      setDataFetched(true);
+      setData(null)
+      setLocalError(err)
+    })
+  }
+
+
+
     return(
       <div  className="home">
         <div className="heading">
-          <h1>Welcome Back .. </h1>
+          <div>
+            <span>Welcome Dilan ... </span>
+            <div className="heading-links">
+              <span>Last Update : 12 Aug 2024  09:35</span>
+            </div>
+          </div>
         </div>
+        {dataFetched && data ?
         <div className="quick-overview-container">
-          <QuickOverView title="Total Revenue" img={revenue} data="111500"/>
-          <QuickOverView title="Total Order" img={delivery} data={763}/>
-          <QuickOverView title="Total Customers" img={customer} data={2953}/>
-          <QuickOverView title="Average Order Value" img={customer} data={560}/>
+          <QuickOverView title="Total Revenue" img={revenue} data={data.revenue}/>
+          <QuickOverView title="Total Deliveries" img={delivery} data={data.orders}/>
+          <QuickOverView title="Total Customers" img={customer} data={data.users}/>
+          <QuickOverView title="Average Order Value" img={customer} data={data.average}/>
+          
         </div>
+        : dataFetched && localError ? <LoadError errorMessage="Loading Failed"/>
+        : <Loading/> 
+        }
         <div className="body-container">
           <div className="revenue">
                 <span className="title">Revenue Overview</span>
@@ -41,6 +82,10 @@ export const Home = ()=>{
           <div className="user-percentage-container">
             <span className="title">User Engagement</span>
             <Users/>
+          </div>
+          <div className="deliveries-container">
+            <span className="title">Deliveries</span>
+            <Deliveries/>
           </div> 
         </div>
       </div>
@@ -49,17 +94,37 @@ export const Home = ()=>{
 }
 
 const Revenue = ()=>{
-  const data = [
-    {day: "mon",revenue: 4000, },
-    {day: "tue",revenue: 3000,},
-    {day: "wed",revenue: 2000,},
-    {day: "thu",revenue: 2780,},
-    {day: "fri",revenue: 1890, },
-    {day: "sat",revenue: 2390 },
-    {day: "sun",revenue: 3490,},
-  ];
+   /* fetching revenue */
+   const [dataFetched, setDataFetched] = useState(false);
+   const [localError, setLocalError] = useState(null);
+   const [data, setData] = useState(null);
+ 
+   useEffect(()=>{
+    setTimeout(()=>{
+     fetchData()
+    },700)
+   },[])
+ 
+   const fetchData = ()=>{
+     axios.get('/summary/revenue')
+     .then((response)=>{
+       console.log(response.data)
+       setData(response.data);
+       setDataFetched(true);
+       setLocalError(false);
+     })
+     .catch((err)=>{
+       setDataFetched(true);
+       setData(null)
+       setLocalError(err)
+     })
+   }
+ 
+ 
   
   return(
+    
+    dataFetched && data ?
     <div style={{ fontSize:"0.7rem"}}>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart  data={data} barGap={2} margin={{ top: 10, right: 0, left: 0, bottom: 0 }} > 
@@ -74,7 +139,8 @@ const Revenue = ()=>{
         <YAxis 
         axisLine={false}   
         tickLine={false}
-        tickMargin={0} />
+        tickMargin={0} 
+        domain={[0, 3000]}/>
         <Tooltip />
         <Legend />
         <Bar 
@@ -86,24 +152,56 @@ const Revenue = ()=>{
       </BarChart> 
 </ResponsiveContainer>
     </div>
+    : dataFetched && localError 
+    ? <LoadError errorMessage="Loading Failed"/>
+    : <Loading/>
+    
 )
 }
 const QuickOverView = ({img, title, data})=>{
+
   return(
+    
   <div className="quick-overview">
       <div className="title">
         <span>{title}</span>
         <img src={img} style={{width:"1.5rem"}}/>
       </div>
       <span className="data">{data}</span>
-</div>
+  </div>
   )
 }
 
 const TopStation = ()=>{
-  const data = [{station:"Colombo", value:60000},{station:"Matara", value:3600}, {station:"Nuwara", value:15000}, {station:"Kegalle", value:14300},{station:"Hambamthota", value:12000}]
+  /* fetching top staions */
+  const [dataFetched, setDataFetched] = useState(false);
+  const [localError, setLocalError] = useState(null);
+  const [data, setData] = useState(null);
+
+  useEffect(()=>{
+   setTimeout(()=>{
+    fetchData()
+   },700)
+  },[])
+
+  const fetchData = ()=>{
+    axios.get('/summary/stations')
+    .then((response)=>{
+      console.log(response.data)
+      setData(response.data);
+      setDataFetched(true);
+      setLocalError(false);
+    })
+    .catch((err)=>{
+      setDataFetched(true);
+      setData(null)
+      setLocalError(err)
+    })
+  }
   let start = 0
   return(
+
+    dataFetched && data ?
     <div className="top-station">
       <table>
         <tr>
@@ -118,48 +216,101 @@ const TopStation = ()=>{
                 <tr>
                   <td>{start}</td>
                   <td>{value.station}</td>
-                  <td>{value.value}</td>
+                  <td>{value.price}</td>
                 </tr>
             )
           })}
         </table>
     </div>
+    : dataFetched && localError
+    ? <LoadError errorMessage="Loading Failed"/>
+    : <Loading/>
   )
 }
 const RecentActivity = ()=>{
-  const data =[
-    {message:"New Employee has onborded by Dilan", type:"employee", at:"24 Aug 2024" ,time:"09.25"},
-    {message:"New Employee has onborded by Raveen", type:"device", at:"20 Aug 2024" ,time:"13.26"},
-    {message:"New Device Has Installed by Dilan", type:"device", at:"24 Aug 2024" ,time:"14.59"},
-    {message:"New Device Has Installed by Kaveen", type:"employee", at:"24 Aug 2024" ,time:"15.15"},
-    {message:"New Employee has Onborded by New", type:"employee", at:"24 Aug 2024" ,time:"19.25"}
-  ]
+
+    /* fetching top recent activities */
+    const [dataFetched, setDataFetched] = useState(false);
+    const [localError, setLocalError] = useState(null);
+    const [data, setData] = useState(null);
+  
+    useEffect(()=>{
+     setTimeout(()=>{
+      fetchData()
+     },700)
+    },[])
+  
+    const fetchData = ()=>{
+      axios.get('/summary/recentactivity')
+      .then((response)=>{
+        console.log(response.data)
+        setData(response.data);
+        setDataFetched(true);
+        setLocalError(false);
+      })
+      .catch((err)=>{
+        setDataFetched(true);
+        setData(null)
+        setLocalError(err)
+      })
+    }
+
+    const mstaff = "New Employee has onborded by"
+    const mdevice = "New Device Has Installed by"
+
   return(
+    
+    dataFetched && data ? 
     <div className="recent-activity">
       {data.map((value, index)=>{
         return(
           <div>
             <div className="description">
-              <img src={value.type=="employee" ? staff : device}></img>
-              <span >{value.message}</span>
+              <img src={value.type=="staff" ? staff : device}></img>
+              <span >{value.type == "staff" ? mstaff + " " + value.ref: mdevice + " " + value.ref}</span>
             </div>
-            <span className="time">{value.at + " at " + value.time }</span>
+            <span className="time">{ value.date + " at " + value.time  }</span>
           </div>
         )
       })}
     </div>
+    : dataFetched && localError 
+    ? <LoadError errorMessage="Loading Failed"/>
+    : <Loading/>
   )
 }
 
 const Users = ()=>{
   
-  const data = [
-    { name: 'App users', value: 400 },
-    { name: 'Group B', value: 100 },
+    /* fetching top recent activities */
+    const [dataFetched, setDataFetched] = useState(false);
+    const [localError, setLocalError] = useState(null);
+    const [data, setData] = useState(null);
+
+    useEffect(()=>{
+    setTimeout(()=>{
+      fetchData()
+    },700)
+    },[])
+
+    const fetchData = ()=>{
+      axios.get('/summary/usertypes')
+      .then((response)=>{
+        console.log(response.data)
+        setData(response.data);
+        setDataFetched(true);
+        setLocalError(false);
+      })
+      .catch((err)=>{
+        setDataFetched(true);
+        setData(null)
+        setLocalError(err)
+      })
+    }
+
+
+  const label = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, type }) => {
     
-   
-  ]
-  const label = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, name }) => {
     const radius = innerRadius + (outerRadius - innerRadius) / 2; 
     const x = cx + radius * Math.cos(-midAngle * Math.PI / 180);
     const y = cy + radius * Math.sin(-midAngle * Math.PI / 180);
@@ -174,7 +325,7 @@ const Users = ()=>{
           textAnchor={x > cx ? 'start' : 'end'}
           dominantBaseline="central"
         >
-          {name}
+          {type}
         </text>
   
         {/* Custom position for the value inside the pie slice */}
@@ -209,6 +360,13 @@ const Users = ()=>{
   )
 }
 
+const Deliveries = ()=>{
+  return(
+    <div className="deliveries">
+      <span>Total  Completed Deliveries for Current Week : 760</span>
+      </div>
+  )
+}
 
 
 

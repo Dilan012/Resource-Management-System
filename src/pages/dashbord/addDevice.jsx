@@ -217,7 +217,7 @@ const Loading = ()=>{
     )
 }
 
-const LoadError = ({errorMessage})=>{
+export const LoadError = ({errorMessage})=>{
     return(
         <div className='load-error-last-device'>
             <span>{errorMessage}</span>
