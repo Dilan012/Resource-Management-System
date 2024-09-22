@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f5ff7976.css",
+    "main.js": "/static/js/main.2231672f.js",
+    "static/js/453.3154de31.chunk.js": "/static/js/453.3154de31.chunk.js",
+    "static/media/login_back.jpg": "/static/media/login_back.735a6415aa825d0d71cd.jpg",
+    "static/media/device_ai.png": "/static/media/device_ai.8a88250b85bd0beea73c.png",
+    "static/media/emp2.png": "/static/media/emp2.2cf29ba4c4b8c37685a3.png",
+    "static/media/team.png": "/static/media/team.f2a41380204dc5e38495.png",
+    "static/media/emp.png": "/static/media/emp.6e08d05d4207f785f171.png",
+    "static/media/ongoing.png": "/static/media/ongoing.d664717b5e01111dc2f5.png",
+    "static/media/employee.png": "/static/media/employee.8f3b8f74122aa8c0c759.png",
+    "static/media/customer.png": "/static/media/customer.38a822d9b4a9a51ded3b.png",
+    "static/media/revenue.png": "/static/media/revenue.7e1ea3c66264902aae81.png",
+    "static/media/station.png": "/static/media/station.e1715780d808f4ca3ae8.png",
+    "static/media/device.png": "/static/media/device.5caa8bde17b05e58ef4b.png",
+    "static/media/delivery.png": "/static/media/delivery.2ce7a7721e2e4d1c9ba4.png",
+    "index.html": "/index.html",
+    "main.f5ff7976.css.map": "/static/css/main.f5ff7976.css.map",
+    "main.2231672f.js.map": "/static/js/main.2231672f.js.map",
+    "453.3154de31.chunk.js.map": "/static/js/453.3154de31.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5ff7976.css",
+    "static/js/main.2231672f.js"
+  ]
+}
