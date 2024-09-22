@@ -141,7 +141,7 @@ const Revenue = ()=>{
         axisLine={false}   
         tickLine={false}
         tickMargin={0} 
-        domain={[0, 3000]}/>
+        domain={[0, Math.max(...data.map(item => item.revenue))]}/>
         <Tooltip />
         <Legend />
         <Bar 
