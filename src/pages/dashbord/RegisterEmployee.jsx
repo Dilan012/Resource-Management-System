@@ -3,6 +3,7 @@ import './registeremployee.css'
 import axios from 'axios'
 import img from '../../images/team.png'
 import { Link } from 'react-router-dom';
+import { axiosInstance } from '../../config/axios';
 
 export const cities = [
     'Colombo',
@@ -114,7 +115,7 @@ export function RegisterEmployee(){
     }
 
     const register = async function(formData){
-         axios.post('/admin/createuser',formData)
+        axiosInstance.post('/admin/createuser',formData)
         .then((response)=>{
             console.log(response)
             setSubmitted(false)

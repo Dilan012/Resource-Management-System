@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Loading } from '../../components/loading';
 import { EmptyData } from './Employees';
 import { Link } from 'react-router-dom';
+import { axiosInstance } from '../../config/axios';
 
 export function Devices(){
 
@@ -16,7 +17,7 @@ export function Devices(){
     const [error ,setError] = useState(null)
 
     const fetchData = ()=>{
-            axios.get('/admin/alldevices',{
+        axiosInstance.get('/admin/alldevices',{
                 params:{status:filter, search_term:searchTerm}
             })
             .then((response)=>{

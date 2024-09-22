@@ -3,6 +3,7 @@ import device from '../../images/device_ai.png'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { axiosInstance } from '../../config/axios'
 
 export function AddDevice(){
     const [success, setSuccess] = useState(false)
@@ -22,7 +23,7 @@ export function AddDevice(){
 
     const getLastDevice = ()=>{
         setLastDevice(null)
-        axios.get('/admin/lastdevice')
+        axiosInstance.get('/admin/lastdevice')
         .then((respone)=>{
             if(respone.data){
                 setLastDevice(respone.data[0])
@@ -77,7 +78,7 @@ export function AddDevice(){
 
     // send http request with data
     const sendData = (data)=>{
-        axios.post('/admin/createdevice', data)
+        axiosInstance.post('/admin/createdevice', data)
         .then((response)=>{
             console.log(response)
             setSuccess(true)

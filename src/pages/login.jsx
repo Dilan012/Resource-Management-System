@@ -2,6 +2,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import './login.css'
 import { useState } from 'react'
 import axios from 'axios'
+import { axiosInstance } from '../config/axios';
 export function Login(){
 
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ export function Login(){
     }
 
     const login = (username, password)=>{
-        axios.post("/admin/login",{
+        axiosInstance.post("/admin/login",{
             
                 employee_id:username, 
                 password:password

@@ -12,6 +12,7 @@ import 'react-day-picker/dist/style.css';
 import axios from "axios"
 import { Loading } from "../../../components/loading"
 import { LoadError } from "../addDevice"
+import { axiosInstance } from "../../../config/axios"
 
 export const Home = ()=>{
    
@@ -27,7 +28,7 @@ export const Home = ()=>{
   },[])
 
   const fetchData = ()=>{
-    axios.get('/summary/quicks')
+    axiosInstance.get('/summary/quicks')
     .then((response)=>{
       console.log(response.data)
       setData(response.data);
@@ -106,7 +107,7 @@ const Revenue = ()=>{
    },[])
  
    const fetchData = ()=>{
-     axios.get('/summary/revenue')
+    axiosInstance.get('/summary/revenue')
      .then((response)=>{
        console.log(response.data)
        setData(response.data);
@@ -185,7 +186,7 @@ const TopStation = ()=>{
   },[])
 
   const fetchData = ()=>{
-    axios.get('/summary/stations')
+    axiosInstance.get('/summary/stations')
     .then((response)=>{
       console.log(response.data)
       setData(response.data);
@@ -241,7 +242,7 @@ const RecentActivity = ()=>{
     },[])
   
     const fetchData = ()=>{
-      axios.get('/summary/recentactivity')
+      axiosInstance.get('/summary/recentactivity')
       .then((response)=>{
         console.log(response.data)
         setData(response.data);
@@ -294,7 +295,7 @@ const Users = ()=>{
     },[])
 
     const fetchData = ()=>{
-      axios.get('/summary/usertypes')
+      axiosInstance.get('/summary/usertypes')
       .then((response)=>{
         console.log(response.data)
         setData(response.data);

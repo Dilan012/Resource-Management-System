@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 import { Link, resolvePath } from "react-router-dom"
 import { cities } from "./RegisterEmployee"
 import { Loading } from "../../components/loading"
+import { axiosInstance } from "../../config/axios"
 
 export function Employees(){
 
@@ -23,7 +24,7 @@ export function Employees(){
 
     const fetchData = (role, station, search_term)=>{
 
-        axios.get('/admin/employees',{
+        axiosInstance.get('/admin/employees',{
             params:{ role:role, station:station, search_term:search_term}
         })
         .then((response)=>{
@@ -43,7 +44,7 @@ export function Employees(){
     }
 
     const promote = (id)=>{
-        axios.get('/admin/promote',{
+        axiosInstance.get('/admin/promote',{
             params:{
                 employee_id : data1[id].employee_id
             }
