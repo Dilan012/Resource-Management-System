@@ -11,9 +11,15 @@ import { Employees } from './dashbord/Employees'
 import { AddDevice } from './dashbord/addDevice'
 import { Devices } from './dashbord/Devices'
 import { Home } from './dashbord/home/home'
+import { useState } from 'react'
+import { click } from '@testing-library/user-event/dist/click'
 export function DashBord(){
 
-    
+    const [clicked , setClicked] = useState("home")
+    const handleClick = (event)=>{
+        setClicked(event.target.id)
+    }
+
     return (
         <div className='dashbord-main-container'>
             <div>
@@ -28,21 +34,21 @@ export function DashBord(){
                     <ul>
                        
 
-                       <Link className='nav-drawer-links-1' to='./home'><li><img src={home}/>Home</li></Link> 
-                       <Link className='nav-drawer-links-1' ><li><img src={ongoing}/> Ongoing</li></Link>
+                       <Link className='nav-drawer-links-1' to='./home'><li className={clicked == "home" ? "active-nav":""} id={"home"} onClick={handleClick}><img src={home}/>Home</li></Link> 
+                       <Link className='nav-drawer-links-1' ><li className={clicked == "onGoing" ? "active-nav":""} id={"onGoing"} onClick={handleClick}><img src={ongoing}/> Ongoing</li></Link>
                    </ul>
                     
                     <ul>
                         <span>Devices</span>
 
-                        <Link className='nav-drawer-links-1'to='./addDevice'><li><img src={add}/>Add new</li></Link>
-                        <Link className='nav-drawer-links-1' to='./devices'><li><img src={device}/>Find Device</li></Link> 
+                        <Link className='nav-drawer-links-1'to='./addDevice'><li className={clicked == "adddevice" ? "active-nav":""} id={"adddevice"} onClick={handleClick} ><img src={add}/>Add new</li></Link>
+                        <Link className='nav-drawer-links-1' to='./devices'><li className={clicked == "devices" ? "active-nav":""} id={"devices"} onClick={handleClick} ><img src={device}/>Find Device</li></Link> 
                     </ul>
                     <ul>
                         <span>Employees</span>
 
-                        <Link className='nav-drawer-links-1' to='./registeremp'><li><img src={add}/>Add new</li></Link>
-                        <Link className='nav-drawer-links-1' to='./employee'><li>Find Employee</li></Link>
+                        <Link className='nav-drawer-links-1' to='./registeremp'><li className={clicked == "Emp" ? "active-nav":""} id={"Emp"} onClick={handleClick}><img src={add}/>Add new</li></Link>
+                        <Link className='nav-drawer-links-1' to='./employee'><li className={clicked == "findEmp" ? "active-nav":""} id={"findEmp"} onClick={handleClick}>Find Employee</li></Link>
                     </ul>
                    
                 </div>

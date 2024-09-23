@@ -29,7 +29,7 @@ export function Login(){
             
         })
         .then((response)=>{
-            navigate('./dashbord')
+            navigate('./dashbord/home')
 
             console.log(response)
         })

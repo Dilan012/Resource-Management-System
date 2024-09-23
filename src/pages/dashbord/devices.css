@@ -5,6 +5,8 @@
     flex-direction: column;
     border-radius: 0.8rem;
     min-height: 100vh;
+    max-width: 100rem;
+
     padding: 1rem;
 }
 .devices > div{

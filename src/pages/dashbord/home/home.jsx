@@ -6,6 +6,10 @@ import customer from '../../../images/customer.png'
 import station from '../../../images/station.png'
 import staff from '../../../images/employee.png'
 import device from '../../../images/device.png'
+import ongoing from '../../../images/ongoing (2).png'
+import completed from '../../../images/completed.png'
+import cancelled from '../../../images/cancelled.png'
+import total from '../../../images/total.png'
 import {DayPicker} from 'react-day-picker'
 import { useEffect, useState } from "react"
 import 'react-day-picker/dist/style.css';
@@ -364,7 +368,11 @@ const Users = ()=>{
 const Deliveries = ()=>{
   return(
     <div className="deliveries">
-      <span>Total  Completed Deliveries for Current Week : 760</span>
+      <div><img src={completed}/><span className="data-delivery">  Completed Deliveries for Current Week :<span className="value">36</span> </span></div><br/>
+      <div><img src={cancelled}></img><span className="data-delivery">  Cancelled Deliveries for Current Week : <span className="value">4</span></span></div><br/>
+      <div><img src={ongoing}/><span className="data-delivery">  Ongoing Deliveries for Current Week : <span className="value">21</span></span></div><br/>
+      <div><img src={total}/><span className="data-delivery"> Completed Deliveries for Current Week : <span className="value">61</span></span></div><br/>
+      
       </div>
   )
 }

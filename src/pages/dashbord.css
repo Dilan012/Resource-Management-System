@@ -85,9 +85,17 @@
  }
 
  .nav-drawer li:hover{
-     background-color: #78ff7a;
-     color: #000000;
+     background-color: rgba(120, 255, 124, 0.3);
     
+ }
+ .active-nav{
+    background-color: #78ff7a;
+    color: #000000 !important;
+
+ }
+ .active-nav:hover{
+    background-color: #78ff7a !important;
+    color: #000000;
  }
  .nav-drawer li.active{
      background-color: #449ce4;
