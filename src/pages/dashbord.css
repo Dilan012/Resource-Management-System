@@ -15,10 +15,11 @@
      background-color: #151515;
      min-height: 100vh;
      border-radius: 0.5rem;
-     
+     position: fixed;
  }
  .dashbord-content{
      flex-grow: 1;
+     margin-left: 15rem;
      
      
    
