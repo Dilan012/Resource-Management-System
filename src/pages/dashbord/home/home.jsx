@@ -399,17 +399,6 @@ const Deliveries = ()=>{
           <div>Order ID range <span>AAAA0056</span> to <span>AAZD1102</span></div>
         </div>
       </div>
-     {/* <div className="data-delivery">
-        <div><img alt="delivery" src={completed}/><span >  Completed  :<span className="value">36</span> </span></div><br/>
-        <div>
-          <img alt="delivery" src={cancelled}></img >
-          <span>  Cancelled       : </span><br/>
-          <span className="value">4</span>
-        </div>
-          <br/>
-        <div><img alt="delivery" src={ongoing}/><span >  Ongoing : <span className="value">21</span></span></div><br/>
-        <div><img alt="delivery" src={total}/><span > Total : <span className="value">61</span></span></div><br/>
-  </div>*/}
     </div>
   )
 }
