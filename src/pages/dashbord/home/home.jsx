@@ -13,7 +13,6 @@ import total from '../../../images/total.png'
 import {DayPicker} from 'react-day-picker'
 import { useEffect, useState } from "react"
 import 'react-day-picker/dist/style.css';
-import axios from "axios"
 import { Loading } from "../../../components/loading"
 import { LoadError } from "../addDevice"
 import { axiosInstance } from "../../../config/axios"
@@ -53,7 +52,7 @@ export const Home = ()=>{
       <div  className="home">
         <div className="heading">
           <div>
-            <span>Welcome {user.fname+"..."} </span>
+            <span>Welcome {data ? user.fname+"...": ""} </span>
             <div className="heading-links">
               <span> {data ? "Last Update : "+ data.time :"Loading..."}</span>
             </div>
@@ -365,12 +364,53 @@ const Users = ()=>{
 const Deliveries = ()=>{
   return(
     <div className="deliveries">
-      <div><img src={completed}/><span className="data-delivery">  Completed  :<span className="value">36</span> </span></div><br/>
-      <div><img src={cancelled}></img><span className="data-delivery">  Cancelled       : <span className="value">4</span></span></div><br/>
-      <div><img src={ongoing}/><span className="data-delivery">  Ongoing : <span className="value">21</span></span></div><br/>
-      <div><img src={total}/><span className="data-delivery"> Total : <span className="value">61</span></span></div><br/>
-      
+      <div>
+        <div className="data-delivery">
+          <div>
+            <img alt="delivery" src={completed}></img >
+            <span className="description">Completed</span>
+          </div>
+          <span className="value">5</span>
+        </div>
+        <div className="data-delivery">
+          <div>
+            <img alt="delivery" src={cancelled}></img >
+            <span className="description">Cancelled</span>
+          </div>
+          <span className="value">5</span>
+        </div>
+        <div className="data-delivery">
+          <div>
+            <img alt="delivery" src={ongoing}></img >
+            <span className="description">Ongoing</span>
+          </div>
+          <span className="value">5</span>
+        </div>
+        <div className="data-delivery">
+          <div>
+            <img alt="delivery" src={total}></img >
+            <span className="description">Total Orders</span>
+          </div>
+          <span className="value">5</span>
+        </div>
       </div>
+      <div>
+        <div>
+          <div>Order ID range <span>AAAA0056</span> to <span>AAZD1102</span></div>
+        </div>
+      </div>
+     {/* <div className="data-delivery">
+        <div><img alt="delivery" src={completed}/><span >  Completed  :<span className="value">36</span> </span></div><br/>
+        <div>
+          <img alt="delivery" src={cancelled}></img >
+          <span>  Cancelled       : </span><br/>
+          <span className="value">4</span>
+        </div>
+          <br/>
+        <div><img alt="delivery" src={ongoing}/><span >  Ongoing : <span className="value">21</span></span></div><br/>
+        <div><img alt="delivery" src={total}/><span > Total : <span className="value">61</span></span></div><br/>
+  </div>*/}
+    </div>
   )
 }
 

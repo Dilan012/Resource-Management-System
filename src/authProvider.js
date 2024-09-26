@@ -7,7 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 const AuthContext = createContext()
 
 export const AuthProvder = ({children})=>{
-
+    const [verified ,setVerified] = useState(false)
     const [user, setUser] = useState(null)
     const navigate = useNavigate()
     const verify = ()=>{
@@ -16,6 +16,7 @@ export const AuthProvder = ({children})=>{
             axiosInstance.get('/admin/verify')
             .then((response)=>{
                 setUser(response.data)
+                setVerified(true);
                 return true;
             })
             .catch((err)=>{
@@ -25,7 +26,7 @@ export const AuthProvder = ({children})=>{
     }
 
     return(
-        <AuthContext.Provider value={{user, setUser, verify}}>
+        <AuthContext.Provider value={{user, setUser, verify, verified, setVerified}}>
             <AxiosInterceptor/>
             {children}
         </AuthContext.Provider>

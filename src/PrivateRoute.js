@@ -4,11 +4,12 @@ import { useEffect, useState } from "react"
 import { Loading } from "./components/loading"
 
 export const PrivateRoute = ()=>{
-    const [verified ,setVerified] = useState(false)
     const [loading, setLoading] = useState(true)
-    const {user, verify} = useAuth()
+    const {user, verify,verified ,setVerified} = useAuth()
+    
     useEffect(()=>{
-      
+        setVerified(false)
+        setLoading(true)
         const checkVerification = async () => {
             if (user) {
                 setVerified(true);
@@ -22,7 +23,7 @@ export const PrivateRoute = ()=>{
     },[user])
 
     if(loading){
-        return(<Loading/>   )
+        return(<Loading/>)
     }
     if(verified){
         return<Outlet/>

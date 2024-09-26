@@ -1,7 +1,6 @@
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './login.css'
 import { useState } from 'react'
-import axios from 'axios'
 import { axiosInstance } from '../config/axios';
 import { useAuth } from '../authProvider';
 export function Login(){
