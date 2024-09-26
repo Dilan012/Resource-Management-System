@@ -2,15 +2,20 @@
 import { Route, Router, Routes } from 'react-router-dom';
 import { Login } from './pages/login';
 import { DashBord } from './pages/dashbord';
+import { AuthProvder } from './authProvider';
+import { PrivateRoute } from './PrivateRoute';
 
 function App() {
   return (
    
-      <Routes>
-        <Route path='/' element={<Login/>}></Route>
-        <Route path='/dashbord/*' element={<DashBord/>}></Route>
-      </Routes>
-  
+      <AuthProvder>
+        <Routes>
+          <Route path='/' element={<Login/>}></Route>
+          <Route element={<PrivateRoute/>}>
+            <Route path='/dashbord/*' element={<DashBord/>}></Route>
+          </Route>
+        </Routes>
+      </AuthProvder>
   );
 }
 

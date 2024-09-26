@@ -27,9 +27,7 @@ export function AddDevice(){
         .then((respone)=>{
             if(respone.data){
                 setLastDevice(respone.data[0])
-                console.log(respone.data[0])
-                console.log("comes here")
-            }
+                }
         })
         .catch((err)=>{
             setLastDeviceError(err.response.data.Error)

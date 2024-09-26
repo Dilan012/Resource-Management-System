@@ -8,12 +8,14 @@ import home from '../images/home.png'
 import './dashbord.css'
 import { RegisterEmployee } from './dashbord/RegisterEmployee'
 import { Employees } from './dashbord/Employees'
+import logo from '../images/logo.png'
 import { AddDevice } from './dashbord/addDevice'
 import { Devices } from './dashbord/Devices'
 import { Home } from './dashbord/home/home'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { click } from '@testing-library/user-event/dist/click'
 export function DashBord(){
+
 
     const [clicked , setClicked] = useState("home")
     const handleClick = (event)=>{
@@ -27,14 +29,14 @@ export function DashBord(){
                     <div className='custom'>
                     
                     <div className='nav-drawer-header'>
-                        <img src={admin_icon}/>
-                        <h3>Admin Portal</h3>
+                        <img src={logo}/>
+                        <h3>Rail Express</h3>
                     
                     </div>
                     <ul>
                        
 
-                       <Link className='nav-drawer-links-1' to='./home'><li className={clicked == "home" ? "active-nav":""} id={"home"} onClick={handleClick}><img src={home}/>Home</li></Link> 
+                       <Link className='nav-drawer-links-1' to='./'><li className={clicked == "home" ? "active-nav":""} id={"home"} onClick={handleClick}><img src={home}/>Home</li></Link> 
                        <Link className='nav-drawer-links-1' ><li className={clicked == "onGoing" ? "active-nav":""} id={"onGoing"} onClick={handleClick}><img src={ongoing}/> Ongoing</li></Link>
                    </ul>
                     
@@ -59,7 +61,7 @@ export function DashBord(){
                         <Route path='/employee' element={<Employees/>}/>
                         <Route path='/addDevice' element={<AddDevice/>}/>
                         <Route path='/devices' element={<Devices/>}/>
-                        <Route path='/home' element={<Home/>}/>
+                        <Route path='/' element={<Home/>}/>
                     </Routes>
                 </div>
             </div>

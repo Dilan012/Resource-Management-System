@@ -3,10 +3,13 @@ import './login.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { axiosInstance } from '../config/axios';
+import { useAuth } from '../authProvider';
 export function Login(){
 
+    const {setUser} = useAuth()
     const navigate = useNavigate();
-
+    const [submit_clicked, setSubmit_Clicked] = useState(false)
+    const [localError, setLocalError] = useState(null)
     const [data , setData] = useState({
         employee_id:"",
         password:""
@@ -14,9 +17,8 @@ export function Login(){
 
     const handlChange = (e)=>{
        const {name, value} = e.target
-       console.log(data)
-
-        setData({
+        setLocalError(null)
+       setData({
             ...data, [name]:value
         })
     }
@@ -29,18 +31,21 @@ export function Login(){
             
         })
         .then((response)=>{
-            navigate('./dashbord/home')
-
-            console.log(response)
+            setSubmit_Clicked(false)
+            setUser(response.data.user)
+            navigate('/dashbord')
+            
         })
         .catch((error)=>{
-            console.log(error)
+            setSubmit_Clicked(false)
+            setLocalError(error.response.data)
+            setUser(null)
 
         })
     }
     const onSubmit = (e)=>{
         e.preventDefault()
-
+        setSubmit_Clicked(true)
         login(data.employee_id, data.password)
 
     }
@@ -52,9 +57,9 @@ export function Login(){
     return(
         <div className='login-main'>
             <div className='nav-bar-login'>
-                <h1>Admin Portal</h1>
+                <h1>Rail Express</h1>
                <div className='nav-items'>
-                    <span> <a href='https://parcelmanagement.netlify.app/'>Station</a></span>
+                    <span> <a href='https://railexpress.netlify.app/'>Station</a></span>
                     <span><a>Help</a></span>
                 </div>
             </div>
@@ -69,7 +74,8 @@ export function Login(){
                             <input type="text" id="employee_id" onChange={handlChange} name="employee_id" value={data.username}></input><br/>
                             <label htmlFor="password">Password</label><br/>
                             <input type="password" id="password" name='password' onChange={handlChange} value={data.password}></input><br/>
-                            <input type="submit" onClick={onSubmit} value="Login"/>
+                            <span className={localError ? 'error-login' : "hide"}>{localError ? localError.Error : ""}</span>
+                            <input type="submit" deactivate onClick={onSubmit} value={submit_clicked ? "Logging..." :"Login"}/>
                         </form>
                         <span></span>
                     </div>

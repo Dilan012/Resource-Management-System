@@ -17,9 +17,10 @@ import axios from "axios"
 import { Loading } from "../../../components/loading"
 import { LoadError } from "../addDevice"
 import { axiosInstance } from "../../../config/axios"
+import { useAuth } from "../../../authProvider"
 
 export const Home = ()=>{
-   
+   const {user} = useAuth()
   /* fetching quick overview */
   const [dataFetched, setDataFetched] = useState(false);
   const [localError, setLocalError] = useState(null);
@@ -34,8 +35,8 @@ export const Home = ()=>{
   const fetchData = ()=>{
     axiosInstance.get('/summary/quicks')
     .then((response)=>{
-      console.log(response.data)
       setData(response.data);
+      console.log(response.data)
       setDataFetched(true);
       setLocalError(false);
     })
@@ -52,9 +53,9 @@ export const Home = ()=>{
       <div  className="home">
         <div className="heading">
           <div>
-            <span>Welcome Dilan ... </span>
+            <span>Welcome {user.fname+"..."} </span>
             <div className="heading-links">
-              <span>Last Update : 12 Aug 2024  09:35</span>
+              <span> {data ? "Last Update : "+ data.time :"Loading..."}</span>
             </div>
           </div>
         </div>
@@ -113,7 +114,6 @@ const Revenue = ()=>{
    const fetchData = ()=>{
     axiosInstance.get('/summary/revenue')
      .then((response)=>{
-       console.log(response.data)
        setData(response.data);
        setDataFetched(true);
        setLocalError(false);
@@ -192,7 +192,6 @@ const TopStation = ()=>{
   const fetchData = ()=>{
     axiosInstance.get('/summary/stations')
     .then((response)=>{
-      console.log(response.data)
       setData(response.data);
       setDataFetched(true);
       setLocalError(false);
@@ -248,7 +247,6 @@ const RecentActivity = ()=>{
     const fetchData = ()=>{
       axiosInstance.get('/summary/recentactivity')
       .then((response)=>{
-        console.log(response.data)
         setData(response.data);
         setDataFetched(true);
         setLocalError(false);
@@ -301,7 +299,6 @@ const Users = ()=>{
     const fetchData = ()=>{
       axiosInstance.get('/summary/usertypes')
       .then((response)=>{
-        console.log(response.data)
         setData(response.data);
         setDataFetched(true);
         setLocalError(false);
@@ -368,10 +365,10 @@ const Users = ()=>{
 const Deliveries = ()=>{
   return(
     <div className="deliveries">
-      <div><img src={completed}/><span className="data-delivery">  Completed Deliveries for Current Week :<span className="value">36</span> </span></div><br/>
-      <div><img src={cancelled}></img><span className="data-delivery">  Cancelled Deliveries for Current Week : <span className="value">4</span></span></div><br/>
-      <div><img src={ongoing}/><span className="data-delivery">  Ongoing Deliveries for Current Week : <span className="value">21</span></span></div><br/>
-      <div><img src={total}/><span className="data-delivery"> Completed Deliveries for Current Week : <span className="value">61</span></span></div><br/>
+      <div><img src={completed}/><span className="data-delivery">  Completed  :<span className="value">36</span> </span></div><br/>
+      <div><img src={cancelled}></img><span className="data-delivery">  Cancelled       : <span className="value">4</span></span></div><br/>
+      <div><img src={ongoing}/><span className="data-delivery">  Ongoing : <span className="value">21</span></span></div><br/>
+      <div><img src={total}/><span className="data-delivery"> Total : <span className="value">61</span></span></div><br/>
       
       </div>
   )

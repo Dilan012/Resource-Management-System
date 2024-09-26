@@ -31,21 +31,28 @@
 .login-form label{
     color: rgb(180, 180, 180);
     font-family:Arial, Helvetica, sans-serif;
-    font-weight:700;
+    font-weight:500;
     
+}
+.hide{
+    display: none;
 }
 .login-form input{
     padding: 0.5rem;
     border-color: unset;
     border: none;
-    background-color: rgba(00, 01, 00, 0.1);
-    border-bottom: solid #ffffff;
+    background-color: rgba(00, 01, 00, 0.0);
+    border-bottom: solid #676767;
     border-width: 1px;
     width: 15rem;
     color: #ffffff;
 }
+.login-form input:hover{
+    background-color: rgba(00, 01, 00, 0.3);
+
+}
 .login-form input:focus{
-    background-color: #9d9d9d;
+    background-color: rgba(81, 81, 81, 0.2);
 }
 .login-form input[type="submit"] {
     background-color: rgba(24, 255, 24, 0.4);
@@ -55,16 +62,30 @@
     border-radius: 0.2rem;
     width: 100%;
 }
+.login-form input[type="submit"]:hover{
+    background-color: rgba(24, 255, 24, 0.6);
+
+}
+.login-form input[type="submit"]:focus{
+    background-color: rgba(24, 255, 24, 0.6);
+
+}
 .login-form input:focus{
     outline: none;
     border: 1px;
-    box-shadow: 0 2px 8px 0 #dfdfdf; 
+   /* box-shadow: 0 2px 8px 0 #dfdfdf; */
 }
 .login-form label{
     display: inline-block;
     padding-top: 1.5rem;
    
    
+}
+.login-container .login-form .error-login{
+    color: red;
+    display: inline-block;
+    padding: 0.2rem;
+    max-width: 15rem;
 }
 .login-form{
     padding-bottom: 2rem; 

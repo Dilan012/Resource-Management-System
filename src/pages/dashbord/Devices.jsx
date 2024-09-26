@@ -25,7 +25,6 @@ export function Devices(){
                     setData(response.data)
                     setDataFetched(true)
                     setError(null)
-                    console.log(response.data)
                 }else{
                     setData(null)
                     setDataFetched(true)
@@ -33,7 +32,6 @@ export function Devices(){
                 }
             })
             .catch((error)=>{
-                console.log(error.response)
                 setData(null)
                 setDataFetched(true)
                 setError(error)
