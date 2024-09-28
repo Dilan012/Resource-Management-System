@@ -6,9 +6,9 @@ import customer from '../../../images/customer.png'
 import station from '../../../images/station.png'
 import staff from '../../../images/employee.png'
 import device from '../../../images/device.png'
-import ongoing from '../../../images/ongoing (2).png'
-import completed from '../../../images/completed.png'
-import cancelled from '../../../images/cancelled.png'
+import ongoing_img from '../../../images/ongoing (2).png'
+import completed_img from '../../../images/completed.png'
+import cancelled_img from '../../../images/cancelled.png'
 import total from '../../../images/total.png'
 import {DayPicker} from 'react-day-picker'
 import { useEffect, useState } from "react"
@@ -340,7 +340,7 @@ const Users = ()=>{
   return(
     <div className="user-percentage">
        
-        <PieChart width={600} height={200} >
+        <PieChart width={700} height={250} >
           <Pie
             dataKey="value"
             startAngle={180}
@@ -348,8 +348,8 @@ const Users = ()=>{
             data={data}
             cx="50%"
             cy="70%"
-            outerRadius={130}
-            innerRadius={80}
+            outerRadius={150}
+            innerRadius={90}
             fill="#87ea7a" 
             label={label} 
             labelLine={false}
@@ -362,43 +362,111 @@ const Users = ()=>{
 }
 
 const Deliveries = ()=>{
+
+   /* fetching deliveries */
+   const [dataFetched, setDataFetched] = useState(false);
+   const [localError, setLocalError] = useState(null);
+   const [data, setData] = useState(null);
+ 
+   useEffect(()=>{
+    setTimeout(()=>{
+     fetchData()
+     if(data){
+     }
+    },700)
+   },[])
+ 
+   const fetchData = ()=>{
+     axiosInstance.get('/summary/deliveries')
+     .then((response)=>{
+       setData(response.data);
+       console.log(response.data)
+       setDataFetched(true);
+       setLocalError(false);
+     })
+     .catch((err)=>{
+       setDataFetched(true);
+       setData(null)
+       setLocalError(err)
+     })
+   }
+
   return(
     <div className="deliveries">
+      {data ? 
+      <>
       <div>
         <div className="data-delivery">
           <div>
-            <img alt="delivery" src={completed}></img >
+            <img alt="delivery" src={completed_img}></img >
             <span className="description">Completed</span>
           </div>
-          <span className="value">5</span>
+          <span className="value">{data.completed ? data.completed : ""}</span>
         </div>
         <div className="data-delivery">
           <div>
-            <img alt="delivery" src={cancelled}></img >
+            <img alt="delivery" src={cancelled_img}></img >
             <span className="description">Cancelled</span>
           </div>
-          <span className="value">5</span>
+          <span className="value">{data.cancelled ? data.cancelled : "0"}</span>
         </div>
         <div className="data-delivery">
           <div>
-            <img alt="delivery" src={ongoing}></img >
+            <img alt="delivery" src={ongoing_img}></img >
             <span className="description">Ongoing</span>
           </div>
-          <span className="value">5</span>
+          <span className="value">{data.ongoing ? data.ongoing : ""}</span>
         </div>
         <div className="data-delivery">
           <div>
             <img alt="delivery" src={total}></img >
             <span className="description">Total Orders</span>
           </div>
-          <span className="value">5</span>
+          <span className="value">{data.cancelled + data.completed + data.ongoing}</span>
         </div>
       </div>
       <div>
-        <div>
-          <div>Order ID range <span>AAAA0056</span> to <span>AAZD1102</span></div>
+        <div className="top-values">
+          <span>Top Destinations</span>
+         <table>
+          <tbody>
+            {data.destination.map((value, index)=>{
+              return(
+                <tr>
+                  <td>{value.station}</td>
+                  <td>{value.value}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+         </table>
+        </div>
+        <div className="top-values">
+          <span>Top Dispatch</span>
+         <table>
+          <tbody>
+            {data.departure.map((value, index)=>{
+              return(
+                <tr>
+                  <td>{value.station}</td>
+                  <td>{value.value}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+         </table>
+        </div>
+        <div className="rate">
+          <span>Success Rate</span>
+          <span>{data.success_rate ? data.success_rate[0].ratio: ""}%</span>
+        </div>
+        <div className="rate">
+          <span>Customer Retention</span>
+          <span>{data.retention ? data.retention.retention_rate : ""}%</span>
         </div>
       </div>
+      </>
+             :<Loading/> }
     </div>
   )
 }

@@ -146,6 +146,7 @@
 .top-station table{
     width: 15rem;
     border-spacing: 0;
+    font-size: 1.3rem;
     
 }
 .top-station td{
@@ -234,6 +235,43 @@
 .deliveries .value{
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 2rem;
+    margin-left: 1.3rem;
     font-size: 1.1rem;
+}
+
+.deliveries .top-values{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+.deliveries .top-values span{
+    color: #4a4a4a;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    padding: 0.2rem 0;
+}
+.deliveries .top-values table{
+    border-spacing: 0;
+}
+.deliveries table td{
+    padding: 0.2rem 1rem 0.2rem 0;
+    font-size: 0.8rem ;     
+    
+}
+.deliveries .rate{
+    display: flex;
+    flex-direction: column;
+    padding: 0.3rem;
+}
+.deliveries .rate span:first-child{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+.deliveries .rate span:nth-child(2){
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    padding:  1rem 0;
+    align-self: center;
 }

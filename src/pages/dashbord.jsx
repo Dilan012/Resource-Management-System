@@ -35,9 +35,7 @@ export function DashBord(){
                     </div>
                     <ul>
                        
-
                        <Link className='nav-drawer-links-1' to='./'><li className={clicked == "home" ? "active-nav":""} id={"home"} onClick={handleClick}><img src={home}/>Home</li></Link> 
-                       <Link className='nav-drawer-links-1' ><li className={clicked == "onGoing" ? "active-nav":""} id={"onGoing"} onClick={handleClick}><img src={ongoing}/> Ongoing</li></Link>
                    </ul>
                     
                     <ul>

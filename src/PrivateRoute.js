@@ -18,8 +18,9 @@ export const PrivateRoute = ()=>{
                 await verify(); 
             }
         };
-                    
-        checkVerification(); // Call the async function
+        setTimeout(()=>{
+            checkVerification(); // Call the async function
+        },800)       
     },[user])
 
     if(loading){
