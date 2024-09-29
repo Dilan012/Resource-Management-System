@@ -5,6 +5,7 @@ import add from '../images/add.png'
 import ongoing from '../images/ongoing.png'
 import device from '../images/device.png'
 import home from '../images/home.png'
+import cancel_icon from '../images/cancel.png'
 import './dashbord.css'
 import { RegisterEmployee } from './dashbord/RegisterEmployee'
 import { Employees } from './dashbord/Employees'
@@ -12,26 +13,35 @@ import logo from '../images/logo.png'
 import { AddDevice } from './dashbord/addDevice'
 import { Devices } from './dashbord/Devices'
 import { Home } from './dashbord/home/home'
-import { useRef, useState } from 'react'
+import { createContext, useRef, useState } from 'react'
 import { click } from '@testing-library/user-event/dist/click'
+
+export const NavBarContext = createContext()
+
 export function DashBord(){
 
-
+    
+    const [hide, setHide] = useState(false)
     const [clicked , setClicked] = useState("home")
+    console.log(hide)
+
     const handleClick = (event)=>{
         setClicked(event.target.id)
+    }
+    const handlehide = ()=>{
+        setHide(true)
     }
 
     return (
         <div className='dashbord-main-container'>
             <div>
-                <div className='nav-drawer'>
+                <div className={hide ? "invisibl nav-drawer" : 'nav-drawer'}>
                     <div className='custom'>
                     
                     <div className='nav-drawer-header'>
                         <img src={logo}/>
                         <h3>Rail Express</h3>
-                    
+                        <img onClick={handlehide} className= "cancel" src={cancel_icon} />
                     </div>
                     <ul>
                        
@@ -51,17 +61,19 @@ export function DashBord(){
                         <Link className='nav-drawer-links-1' to='./employee'><li className={clicked == "findEmp" ? "active-nav":""} id={"findEmp"} onClick={handleClick}>Find Employee</li></Link>
                     </ul>
                    
+                </div>  
                 </div>
-                </div>
-                <div className='dashbord-content'>
-                    <Routes>
-                        <Route path='/registeremp' element={<RegisterEmployee/>}/>
-                        <Route path='/employee' element={<Employees/>}/>
-                        <Route path='/addDevice' element={<AddDevice/>}/>
-                        <Route path='/devices' element={<Devices/>}/>
-                        <Route path='/' element={<Home/>}/>
-                    </Routes>
-                </div>
+                <NavBarContext.Provider value={{hide,setHide}}>
+                    <div className={'dashbord-content'}>
+                        <Routes>
+                            <Route path='/registeremp' element={<RegisterEmployee/>}/>
+                            <Route path='/employee' element={<Employees/>}/>
+                            <Route path='/addDevice' element={<AddDevice/>}/>
+                            <Route path='/devices' element={<Devices/>}/>
+                            <Route path='/' element={<Home/>}/>
+                        </Routes>
+                    </div>
+                </NavBarContext.Provider>
             </div>
         </div>
     )

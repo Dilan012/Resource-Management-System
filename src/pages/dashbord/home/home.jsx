@@ -10,20 +10,26 @@ import ongoing_img from '../../../images/ongoing (2).png'
 import completed_img from '../../../images/completed.png'
 import cancelled_img from '../../../images/cancelled.png'
 import total from '../../../images/total.png'
+import menu_icon from '../../../images/hamburger.png'
 import {DayPicker} from 'react-day-picker'
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import 'react-day-picker/dist/style.css';
 import { Loading } from "../../../components/loading"
 import { LoadError } from "../addDevice"
 import { axiosInstance } from "../../../config/axios"
 import { useAuth } from "../../../authProvider"
-
+import { NavBarContext } from "../../dashbord"
 export const Home = ()=>{
    const {user} = useAuth()
+   const {hide,setHide} = useContext(NavBarContext)
   /* fetching quick overview */
   const [dataFetched, setDataFetched] = useState(false);
   const [localError, setLocalError] = useState(null);
   const [data, setData] = useState(null);
+
+  const handleHide = (e)=>{
+      setHide(!hide)
+  }
 
   useEffect(()=>{
    setTimeout(()=>{
@@ -52,6 +58,7 @@ export const Home = ()=>{
       <div  className="home">
         <div className="heading">
           <div>
+            <img src={menu_icon} onClick={handleHide}/>
             <span>Welcome {data ? user.fname+"...": ""} </span>
             <div className="heading-links">
               <span> {data ? "Last Update : "+ data.time :"Loading..."}</span>
@@ -339,23 +346,27 @@ const Users = ()=>{
   
   return(
     <div className="user-percentage">
-       
-        <PieChart width={700} height={250} >
+             
+      <ResponsiveContainer 
+      width="100%"
+      height="100%"
+      >
+        <PieChart  >
           <Pie
             dataKey="value"
             startAngle={180}
             endAngle={0}
             data={data}
             cx="50%"
-            cy="70%"
-            outerRadius={150}
-            innerRadius={90}
+            cy="50%"
+            outerRadius="90%"
+            innerRadius="50%"
             fill="#87ea7a" 
             label={label} 
             labelLine={false}
           />
         </PieChart>
-      
+      </ResponsiveContainer>
     
     </div>
   )
@@ -401,7 +412,7 @@ const Deliveries = ()=>{
             <img alt="delivery" src={completed_img}></img >
             <span className="description">Completed</span>
           </div>
-          <span className="value">{data.completed ? data.completed : ""}</span>
+          <span className="value">{data.completed ? data.completed : "0"}</span>
         </div>
         <div className="data-delivery">
           <div>
@@ -415,7 +426,7 @@ const Deliveries = ()=>{
             <img alt="delivery" src={ongoing_img}></img >
             <span className="description">Ongoing</span>
           </div>
-          <span className="value">{data.ongoing ? data.ongoing : ""}</span>
+          <span className="value">{data.ongoing ? data.ongoing : "0"}</span>
         </div>
         <div className="data-delivery">
           <div>

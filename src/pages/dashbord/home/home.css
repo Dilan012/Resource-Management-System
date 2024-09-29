@@ -17,10 +17,17 @@
 .home .heading div > span:first-child{
     flex-grow: 1;
 }
+.home .heading img{
+
+    display: none;
+}
+
 .home .heading .heading-links{
     font-size: 1rem;
     font-weight: 400;
     display: flex;
+    flex-grow: 1;
+    text-align: right;
     gap: 1rem;
 }
 .quick-overview-container{
@@ -74,19 +81,42 @@
     flex-grow: 1;
 }
 .user-percentage-container{
-  
+    max-width: 600px;
+    height: 300px;
+    flex-grow: 1;
+    align-items: center;
+}
+.user-percentage{
+    width: 100%;
+    height: 100%;
 }
 .home .deliveries-container{
 
 
 }
-@media (max-width:1100px){
+@media (max-width:1200px){
+    .home .heading img{ 
+        width: 1rem;
+        height: 1rem;
+        align-self: center;
+        margin: 0 1rem 0 0;
+        display:unset ;
+    
+    }
+}
+@media (max-width:900px){
 
     .home .revenue{
         min-width:18rem;
         max-width: 50rem;
 
     }
+    .user-percentage-container{
+        max-width: unset;
+        height: 200px;
+       
+    }
+   
     
     .top-station-container {
     }
