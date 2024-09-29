@@ -10,6 +10,8 @@ import ongoing_img from '../../../images/ongoing (2).png'
 import completed_img from '../../../images/completed.png'
 import cancelled_img from '../../../images/cancelled.png'
 import total from '../../../images/total.png'
+import dark from '../../../images/dark.png'
+import light from '../../../images/light.png'
 import menu_icon from '../../../images/hamburger.png'
 import {DayPicker} from 'react-day-picker'
 import { useContext, useEffect, useState } from "react"
@@ -21,16 +23,19 @@ import { useAuth } from "../../../authProvider"
 import { NavBarContext } from "../../dashbord"
 export const Home = ()=>{
    const {user} = useAuth()
-   const {hide,setHide} = useContext(NavBarContext)
+   const {hide,setHide,darkTheme, setDarkTheme} = useContext(NavBarContext)
   /* fetching quick overview */
   const [dataFetched, setDataFetched] = useState(false);
   const [localError, setLocalError] = useState(null);
   const [data, setData] = useState(null);
 
+
   const handleHide = (e)=>{
       setHide(!hide)
   }
-
+  const changeTheme = (e)=>{
+    setDarkTheme(!darkTheme)
+  }
   useEffect(()=>{
    setTimeout(()=>{
     fetchData()
@@ -55,47 +60,48 @@ export const Home = ()=>{
 
 
     return(
-      <div  className="home">
+      <div  className={darkTheme ? "home dark-back" : "home light-back"}>
         <div className="heading">
           <div>
-            <img src={menu_icon} onClick={handleHide}/>
-            <span>Welcome {data ? user.fname+"...": ""} </span>
+            <img src={menu_icon} className={darkTheme ? "dark-img" : ""} onClick={handleHide}/>
+            <span className={darkTheme ? "dark-text" : ""}>Welcome {data ? user.fname+"...": ""} </span>
             <div className="heading-links">
-              <span> {data ? "Last Update : "+ data.time :"Loading..."}</span>
+              <span  className={darkTheme ? "dark-text" : ""}> {data ? "Last Update : "+ data.time :"Loading..."}</span>
             </div>
+            {darkTheme ? <img src={light} onClick={changeTheme} className="theme-toggle dark-img"/> : <img src={dark} onClick={changeTheme} className="theme-toggle"/>}
           </div>
         </div>
         {dataFetched && data ?
         <div className="quick-overview-container">
-          <QuickOverView title="Total Revenue" img={revenue} data={data.revenue}/>
-          <QuickOverView title="Total Deliveries" img={delivery} data={data.orders}/>
-          <QuickOverView title="Total Customers" img={customer} data={data.users}/>
-          <QuickOverView title="Average Order Value" img={customer} data={data.average}/>
+          <QuickOverView title="Total Revenue" img={revenue} data={data.revenue} theme={darkTheme}/>
+          <QuickOverView title="Total Deliveries" img={delivery} data={data.orders} theme={darkTheme}/>
+          <QuickOverView title="Total Customers" img={customer} data={data.users} theme={darkTheme}/>
+          <QuickOverView title="Average Order Value" img={customer} data={data.average} theme={darkTheme}/>
           
         </div>
         : dataFetched && localError ? <LoadError errorMessage="Loading Failed"/>
         : <Loading/> 
         }
         <div className="body-container">
-          <div className="revenue">
+          <div className={darkTheme ? "revenue dark" : "revenue light"}>
                 <span className="title">Revenue Overview</span>
               
                 <Revenue/>
              
           </div>
-          <div className="top-station-container">
+          <div className={darkTheme ? "top-station-container dark" : "top-station-container light"}>
             <span className="title">Top stations</span>
             <TopStation/>
           </div>
-          <div className="recent-activity-container">
+          <div className={darkTheme ? "recent-activity-container dark" : "recent-activity-container light"}>
             <span className="title">Recent Activities</span>
             <RecentActivity/>
           </div> 
-          <div className="user-percentage-container">
+          <div className={darkTheme ? "user-percentage-container dark" : "user-percentage-container light"}>
             <span className="title">User Engagement</span>
             <Users/>
           </div>
-          <div className="deliveries-container">
+          <div className={darkTheme ? "deliveries-container dark" : "deliveries-container light"}>
             <span className="title">Deliveries</span>
             <Deliveries/>
           </div> 
@@ -169,14 +175,14 @@ const Revenue = ()=>{
     
 )
 }
-const QuickOverView = ({img, title, data})=>{
+const QuickOverView = ({img, title, data, theme})=>{
 
   return(
     
-  <div className="quick-overview">
+  <div className={theme ? "quick-overview dark" : "quick-overview light"}>
       <div className="title">
         <span>{title}</span>
-        <img src={img} style={{width:"1.5rem"}}/>
+        <img src={img} className={theme ? "dark-img" :""} style={{width:"1.5rem"}}/>
       </div>
       <span className="data">{data}</span>
   </div>
@@ -188,6 +194,7 @@ const TopStation = ()=>{
   const [dataFetched, setDataFetched] = useState(false);
   const [localError, setLocalError] = useState(null);
   const [data, setData] = useState(null);
+  const {darkTheme} = useContext(NavBarContext)
 
   useEffect(()=>{
    setTimeout(()=>{
@@ -216,8 +223,8 @@ const TopStation = ()=>{
       <table>
         <tr>
           <td></td>
-          <td><img src={station} /></td>
-          <td><img src={revenue} /></td>
+          <td><img src={station} className={darkTheme ? "dark-img" : ""} /></td>
+          <td><img src={revenue} className={darkTheme ? "dark-img" : ""} /></td>
         </tr>
           {data.map((value, index)=>{
             {start+=1}
@@ -243,6 +250,8 @@ const RecentActivity = ()=>{
     const [dataFetched, setDataFetched] = useState(false);
     const [localError, setLocalError] = useState(null);
     const [data, setData] = useState(null);
+    const {darkTheme} = useContext(NavBarContext)
+
   
     useEffect(()=>{
      setTimeout(()=>{
@@ -275,7 +284,7 @@ const RecentActivity = ()=>{
         return(
           <div>
             <div className="description">
-              <img src={value.type=="staff" ? staff : device}></img>
+              <img src={value.type=="staff" ? staff : device} className={darkTheme ? "dark-img" : ""}></img>
               <span >{value.type == "staff" ? mstaff + " " + value.ref: mdevice + " " + value.ref}</span>
             </div>
             <span className="time">{ value.date + " at " + value.time  }</span>
@@ -295,6 +304,8 @@ const Users = ()=>{
     const [dataFetched, setDataFetched] = useState(false);
     const [localError, setLocalError] = useState(null);
     const [data, setData] = useState(null);
+    const {darkTheme} = useContext(NavBarContext)
+
 
     useEffect(()=>{
     setTimeout(()=>{
@@ -327,9 +338,10 @@ const Users = ()=>{
       <g>
         {/* This uses the default built-in label position for the description */}
         <text
+        
           x={cx + (outerRadius + 10) * Math.cos(-midAngle * Math.PI / 180)}
           y={cy + (outerRadius + 10) * Math.sin(-midAngle * Math.PI / 180)}
-          fill="#333"
+          fill={darkTheme ? "#b8b8b8" : "000000"}
           textAnchor={x > cx ? 'start' : 'end'}
           dominantBaseline="central"
         >
@@ -378,6 +390,8 @@ const Deliveries = ()=>{
    const [dataFetched, setDataFetched] = useState(false);
    const [localError, setLocalError] = useState(null);
    const [data, setData] = useState(null);
+   const {darkTheme} = useContext(NavBarContext)
+
  
    useEffect(()=>{
     setTimeout(()=>{
@@ -423,14 +437,14 @@ const Deliveries = ()=>{
         </div>
         <div className="data-delivery">
           <div>
-            <img alt="delivery" src={ongoing_img}></img >
+            <img alt="delivery" className={darkTheme ? "dark-img" : ""}  src={ongoing_img}></img >
             <span className="description">Ongoing</span>
           </div>
           <span className="value">{data.ongoing ? data.ongoing : "0"}</span>
         </div>
         <div className="data-delivery">
           <div>
-            <img alt="delivery" src={total}></img >
+            <img alt="delivery" className={darkTheme ? "dark-img" : ""} src={total}></img >
             <span className="description">Total Orders</span>
           </div>
           <span className="value">{data.cancelled + data.completed + data.ongoing}</span>

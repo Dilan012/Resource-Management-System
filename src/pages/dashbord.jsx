@@ -21,9 +21,9 @@ export const NavBarContext = createContext()
 export function DashBord(){
 
     
-    const [hide, setHide] = useState(false)
+    const [hide, setHide] = useState(true)
+    const [darkTheme , setDarkTheme] = useState(true)
     const [clicked , setClicked] = useState("home")
-    console.log(hide)
 
     const handleClick = (event)=>{
         setClicked(event.target.id)
@@ -63,7 +63,7 @@ export function DashBord(){
                    
                 </div>  
                 </div>
-                <NavBarContext.Provider value={{hide,setHide}}>
+                <NavBarContext.Provider value={{hide,setHide, setDarkTheme, darkTheme}}>
                     <div className={'dashbord-content'}>
                         <Routes>
                             <Route path='/registeremp' element={<RegisterEmployee/>}/>

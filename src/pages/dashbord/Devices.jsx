@@ -1,12 +1,14 @@
 import './devices.css'
 import add from '../../images/add.png'
 import { SearchBarEmp } from "../../components/SearchBarEmp";
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Loading } from '../../components/loading';
 import { EmptyData } from './Employees';
 import { Link } from 'react-router-dom';
 import { axiosInstance } from '../../config/axios';
+import nav_icon from '../../images/hamburger.png'
+import { NavBarContext } from '../dashbord';
 
 export function Devices(){
 
@@ -15,6 +17,11 @@ export function Devices(){
     const [filter, setFilter] = useState({})
     const [searchTerm, setSearchTerm] = useState({})
     const [error ,setError] = useState(null)
+    const {hide,setHide} = useContext(NavBarContext)
+
+    const handleHide = (e)=>{
+        setHide(!hide)
+    }
 
     const fetchData = ()=>{
         axiosInstance.get('/admin/alldevices',{
@@ -58,7 +65,10 @@ export function Devices(){
 
     return(
         <div className="devices">
-            <span>Device Manager</span>
+            <div className='header'>
+                <img src={nav_icon} onClick={handleHide}/>
+                <span>Device Manager</span>
+            </div>
             <div>
                 <div className='search-bar'>
                     <SearchBarEmp setSearchTerm={onSearching}/>
