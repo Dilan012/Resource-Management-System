@@ -59,6 +59,8 @@
     flex-direction: column;
     box-sizing: border-box; 
 }
+
+/* <<<<<<<<<<<<<<<< ================= >>>>>>>>>>>>>>>>>>> theme configs */
 .home .dark{
     box-shadow: 0 1px 2px 1px #373737;    
     background-color: #242424;
@@ -85,6 +87,7 @@
   padding: 0.3rem 2rem;
 }
 
+/* <<<<<<<<<<<<<<<<<<======================= >>>>>>>>>>>>>> main components */
 .home .revenue{
     flex-grow: 1;
     max-width: 35rem;
@@ -125,6 +128,7 @@
 }
 .user-percentage-container{
     max-width: 600px;
+    min-width: 400px;
     flex-grow: 1;
     align-items: center;
     border-width: 1px;

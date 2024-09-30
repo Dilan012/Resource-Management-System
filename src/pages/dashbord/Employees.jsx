@@ -1,15 +1,14 @@
 import { SearchBarEmp } from "../../components/SearchBarEmp"
 import './employee.css'
-import emp from '../../images/emp.png'
-import emp2 from '../../images/emp2.png'
 import empty from '../../images/empty.png'
 import add from '../../images/add.png'
-import axios from "axios"
-import { useEffect, useState } from "react"
+import nav_icon from '../../images/hamburger.png'
+import { useContext, useEffect, useState } from "react"
 import { Link, resolvePath } from "react-router-dom"
 import { cities } from "./RegisterEmployee"
 import { Loading } from "../../components/loading"
 import { axiosInstance } from "../../config/axios"
+import { NavBarContext } from "../dashbord"
 
 export function Employees(){
 
@@ -21,7 +20,12 @@ export function Employees(){
     const [searchTerm, setSearchTerm] = useState(null)
     const [clickIndex, setClickIndex] = useState();
     const [reload, setReload] = useState(false)
+    const {hide,setHide} = useContext(NavBarContext)
 
+    
+    const handleHide = (e)=>{
+        setHide(!hide)
+    }
     const fetchData = (role, station, search_term)=>{
 
         axiosInstance.get('/admin/employees',{
@@ -86,7 +90,10 @@ export function Employees(){
     
     return(
         <div className="emp-main-container">
-            <h3>Staff Manager</h3>
+            <div className="header">
+                <img src={nav_icon} onClick={handleHide}/>
+                <h3>Staff Manager</h3>
+            </div>
             <div className="headbar-emp">
             <div className="search-bar">
                 <SearchBarEmp setSearchTerm={setSearchTerm}/>

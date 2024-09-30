@@ -1,11 +1,14 @@
 import './addDevice.css'
 import device from '../../images/device_ai.png'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
+import nav_icon from '../../images/hamburger.png'
 import { axiosInstance } from '../../config/axios'
+import { NavBarContext } from '../dashbord'
 
 export function AddDevice(){
+    
     const [success, setSuccess] = useState(false)
     const [submitted, setSubmitted] = useState(false)
     const [conflicterror, setConfilictError] = useState(null)
@@ -15,12 +18,16 @@ export function AddDevice(){
         mac_id:null,
         iccid:null,
     })
+    const {hide, setHide} = useContext(NavBarContext)
     const [formData , setFormData] = useState({
         mac_id:"",
         iccid:"",
         status:"in_use"
     })
 
+    const handleHide = (e)=>{
+        setHide(!hide)
+    }
     const getLastDevice = ()=>{
         setLastDevice(null)
         axiosInstance.get('/admin/lastdevice')
@@ -122,6 +129,7 @@ export function AddDevice(){
         <div className="add-device">
             <div>
                 <div className='header'>
+                    <img src={nav_icon} onClick={handleHide} className='nav-icon'/>
                     <span>Device Installation</span>
                     <div>
                         <Link to='../devices' className='link-tag'><span>All Devices</span></Link>

@@ -7,6 +7,16 @@
     height: 100vh;
     overflow: auto;
 }
+.emp-main-container .header{
+    display: flex;
+    gap: 1rem;
+    align-items: center ;
+}
+
+.emp-main-container .header img{
+    width: 1rem;
+    height: 1rem;
+}
 .emp-reg-container .content-white{
     background-color: rgb(43, 43, 43);
     gap: 1.5rem;
@@ -152,4 +162,11 @@
 }
 .emp-reg-container button:active{
     background-color: #e3fc54;
+}
+
+@media (min-width:1200px){
+    
+.emp-main-container .header img{
+    display: none;
+}
 }
