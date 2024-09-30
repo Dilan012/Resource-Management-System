@@ -25,8 +25,21 @@ export const AuthProvder = ({children})=>{
         }, 500)
     }
 
+    const logout = ()=>{
+        axiosInstance.get('/staff/logout')
+        .then((response)=>{
+            console.log(response.data)
+            navigate('/')
+            setUser(null)
+        })
+        .catch((err)=>{
+            setUser(null)
+            navigate('/')
+        })
+    
+    }
     return(
-        <AuthContext.Provider value={{user, setUser, verify, verified, setVerified}}>
+        <AuthContext.Provider value={{user, setUser, verify, verified, setVerified, logout}}>
             <AxiosInterceptor/>
             {children}
         </AuthContext.Provider>

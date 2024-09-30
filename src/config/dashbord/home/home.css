@@ -1,0 +1,364 @@
+.home{
+    background-color: #ffffff;
+    margin: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    max-width: 80rem;
+}
+.home .heading > div{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4a4a4a;
+    padding: 2rem;
+    display: flex;
+   align-items: center;
+}
+.home .heading div > span:first-child{
+    flex-grow: 1;
+}
+.home .heading img:first-child{
+
+    display: none;
+}
+
+.home .heading .heading-links{
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    flex-grow: 1;
+    text-align: right;
+    gap: 1rem;
+}
+.quick-overview-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:2rem;
+    width: 100%;
+    margin: 0rem 0;
+    
+}
+
+.home .body-container{
+    display: flex ;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;   
+}
+.home .body-container .title{
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.home .body-container > div{
+    display: flex ;
+    flex-direction: column;
+    box-sizing: border-box; 
+}
+
+/* <<<<<<<<<<<<<<<< ================= >>>>>>>>>>>>>>>>>>> theme configs */
+.home .dark{
+    box-shadow: 0 1px 2px 1px #373737;    
+    background-color: #242424;
+    color: #b8b8b8 ;
+}
+.home .light{
+    box-shadow: 0 1px 2px 1px #cdcdcd;    
+    background-color: #f6f6f6;
+}
+.dark-img{
+    filter: brightness(0) invert(1);
+}
+.dark-back{
+    background-color: #161616;
+    color: #ffffff;
+}
+.dark-text{
+    color: #b8b8b8 ;
+
+}
+.theme-toggle{
+  width: 1.5rem;
+  height: auto;
+  padding: 0.3rem 2rem;
+}
+
+/* <<<<<<<<<<<<<<<<<<======================= >>>>>>>>>>>>>> main components */
+.home .revenue{
+    flex-grow: 1;
+    max-width: 35rem;
+    min-width: 20rem;
+    gap:1rem;
+    border-width: 1px;
+    border-radius: 0.5rem;
+
+}
+.home .top-station-container{
+    flex-grow: 1;
+    gap: 1.5rem;
+    align-items: center;
+    border-width: 1px;
+    border-radius: 0.5rem;
+
+
+}
+
+.home .recent-activity-container{
+    align-items: center;
+    gap: 1.5rem;
+    flex-grow: 1;
+    border-width: 1px;
+    border-radius: 0.5rem;
+
+
+
+}
+.home .deliveries-container{
+    align-items: center;
+    gap: 1.5rem;
+    flex-grow: 1;
+    border-width: 1px;
+    border-radius: 0.5rem;
+
+
+}
+.user-percentage-container{
+    max-width: 600px;
+    min-width: 400px;
+    flex-grow: 1;
+    align-items: center;
+    border-width: 1px;
+    border-radius: 0.5rem;
+    
+
+}
+
+.user-percentage{
+    width: 100%;
+    height: 100%;
+}
+.home .deliveries-container{
+
+
+}
+@media (max-width:1200px){
+    .home .heading img:first-child{ 
+        width: 1rem;
+        height: 1rem;
+        align-self: center;
+        margin: 0 1rem 0 0;
+        display:unset ;
+    
+    }
+}
+@media (max-width:900px){
+
+    .home .revenue{
+        min-width:18rem;
+        max-width: 50rem;
+
+    }
+    .user-percentage-container{
+        max-width: unset;
+        height: 200px;
+       
+    }
+   
+    
+    .top-station-container {
+    }
+    .recent-activity-container{
+}
+.quick-overview-container{
+    justify-content: center;
+}
+}
+@media (max-width:480px){
+
+    .home .revenue{
+        flex-basis: 100%;
+
+    }
+    .home .body-container{
+        display: flex ;
+        gap: 1.5rem;
+        margin-top: 1rem;   
+    }
+    
+    .top-station-container {
+        flex-basis: 50%;
+    }
+    .recent-activity-container{
+        flex-basis: 50%;
+        flex-grow: 1;
+    }
+   
+.quick-overview-container{
+    justify-content: center;
+}
+}
+/* quick over view component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+
+.quick-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-width: 11.5rem;
+    box-shadow: 0 1px 2px 1px #d8d8d8;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+
+
+}
+.home .quick-overview .data{
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.home .quick-overview .title{
+    display: flex;
+}
+.home .quick-overview .title span{
+    flex-grow: 1;
+}
+/* top Station component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+.top-station table{
+    width: 15rem;
+    border-spacing: 0;
+    font-size: 1.3rem;
+    
+}
+.top-station td{
+  padding:0.5rem 1rem 0.5rem 0.5rem;
+}
+.top-station table td:nth-child(2){
+    padding-right: 2rem;
+}
+.top-station td img{
+    width: 2rem;
+}
+
+/* Recent Activity component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+
+.home .recent-activity{
+    display: flex ;
+    flex-direction: column ;
+    gap: 1rem;
+    margin: 0.5rem;
+   
+   
+    
+}
+.recent-activity > div{
+    padding-bottom: 0.2rem;
+    border-bottom: solid #dadada;
+    border-width: 1px;
+}
+.recent-activity div .description{
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    
+
+}
+.recent-activity .description img{
+    width: 1rem;
+}
+.recent-activity .description span{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+.recent-activity .time{
+    margin-left: 1.8rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+/* User Percentage component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+.user-percentage{
+    margin-top: 2rem;
+}
+
+/* Deliveries component  <<<<<<<<<<<<<<<<< ============= >>>>>>>>>>>>>>>>>>> */
+.deliveries{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    
+}
+.deliveries > div{
+    display: flex;
+    gap: 1rem;
+}
+.deliveries .data-delivery {
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;   
+}
+.deliveries .data-delivery{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    border: solid #c5c5c5;
+    border-width: 1px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 6rem;
+    }
+.deliveries .data-delivery div{
+    display: flex;
+    gap: 0.3rem;
+
+
+}
+
+.deliveries img{
+    width: 1rem;
+}
+.deliveries .value{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 1.3rem;
+    font-size: 1.1rem;
+}
+
+.deliveries .top-values{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+.deliveries .top-values span{
+    color: #4a4a4a;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    padding: 0.2rem 0;
+}
+.deliveries .top-values table{
+    border-spacing: 0;
+}
+.deliveries table td{
+    padding: 0.2rem 1rem 0.2rem 0;
+    font-size: 0.8rem ;     
+    
+}
+.deliveries .rate{
+    display: flex;
+    flex-direction: column;
+    padding: 0.3rem;
+}
+.deliveries .rate span:first-child{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+.deliveries .rate span:nth-child(2){
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    padding:  1rem 0;
+    align-self: center;
+}

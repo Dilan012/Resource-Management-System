@@ -26,8 +26,12 @@
  .nav-drawer .custom{
      max-height: 100vh;
      overflow-y: auto;
+  
  }
- 
+ .nav-drawer .custom .logout{
+    margin-top: 2rem;
+    border-top: solid 1px #494949;
+ }
  .nav-drawer li{
      padding-left: 10px;
    /*  background-color: #e7ffe9;*/

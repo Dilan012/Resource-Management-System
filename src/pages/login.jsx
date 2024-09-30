@@ -3,6 +3,7 @@ import './login.css'
 import { useState } from 'react'
 import { axiosInstance } from '../config/axios';
 import { useAuth } from '../authProvider';
+import logo from '../images/logo.png'
 export function Login(){
 
     const {setUser} = useAuth()
@@ -56,6 +57,7 @@ export function Login(){
     return(
         <div className='login-main'>
             <div className='nav-bar-login'>
+                <img src={logo}/>
                 <h1>Rail Express</h1>
                <div className='nav-items'>
                     <span> <a href='https://railexpress.netlify.app/'>Station</a></span>

@@ -1,0 +1,316 @@
+body{
+    background-color: #0d0d0d;
+
+}
+.add-device{
+    width: 100%;
+    padding: 1rem;
+    height: max-content;
+    max-width: 100rem;
+    box-sizing: border-box;
+   
+    
+       
+}
+.add-device > div:first-child{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    height: fit-content;
+    padding: 1rem;
+    border-radius: 1rem;
+    
+
+
+}
+.add-device .header{
+    color: rgb(101, 101, 101);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    gap: 1rem;
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.add-device .header img{
+    width: 1rem;
+    height: 1rem;
+}
+.add-device .header span{
+    flex-grow: 1;
+}
+.add-device .header div{
+    display: flex;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+.add-device .header div span{
+    
+    font-size: 1rem;
+    color: #838383;
+    padding: 0.2rem;
+   
+}
+.add-device .header div .link-tag{
+    text-decoration: none;
+}
+
+.add-device .header div span:hover{
+    font-size: 1rem;
+    color: #000000;
+    border-bottom: solid;
+    border-width: 1px;
+   
+}
+.add-device form{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    justify-content: center;
+}
+.add-device .form-container{
+    display: flex;
+    border-top: solid;
+    border-width: 1px;
+    border-color: #a2a2a2;
+}
+.add-device .form-group{
+   
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+.add-device form .submit-group{
+    margin: 1rem;
+    display: flex;
+    justify-content: right;
+    gap: 2rem;
+} 
+.add-device input[type="submit"]{
+    background-color: #22a32f;
+    outline: none;
+    border: none;
+    padding:0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    color: rgb(255, 255, 255)    ;
+}
+.add-device input[type="submit"]:hover{
+    background-color: #00ff1a;
+   
+ 
+}
+.add-device input[type="reset"]{
+    background-color: #ffffff;
+    outline: none;
+    border: solid;
+    border-width: 1px;
+    padding:0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    color: rgb(68, 66, 66)    ;
+}
+.add-device input[type="reset"]:hover{
+    background-color: #c2c2c2;
+}
+.add-device form .form-group input{
+    background-color: rgb(255, 255, 255);
+    padding: 0.7rem;
+    color: rgb(111, 111, 111);
+    width: 20rem;
+    border-color: rgb(111, 111, 111);
+    border: solid;
+    border-width: 1px;
+    border-radius: 0.4rem;
+    outline: none;
+}
+.add-device form .form-group input:focus{
+    background-color: rgb(65, 65, 65);
+    color: rgb(255, 255, 255);
+    border-color: rgb(107, 107, 107);
+
+}
+
+.add-device form .form-group label{
+     color: rgb(65, 65, 65);
+     font-weight: 500;
+
+}
+.add-device .form-group select{
+    background-color: rgb(255, 255, 255);
+    padding: 0.7rem;
+    color: rgb(111, 111, 111);
+    border-radius: 0.4rem;
+    outline: none;  
+}
+.add-device form .form-group select:focus{
+    background-color: rgb(65, 65, 65);
+    color: rgb(255, 255, 255);
+    border-color: rgb(107, 107, 107);
+}
+.add-device form .form-group .error-text{
+    color: red;
+    display: inline-block; 
+    height: 1.5rem;
+ 
+}
+
+.add-device .success-message{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0rem;
+    color: #22a32f;
+    font-weight: 500;
+}
+.add-device .error-message{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0rem;
+    color: #ff0000;
+    font-weight: 500;
+}
+.invisible{
+    visibility: hidden;
+}
+
+
+/* last device table decorations*/
+
+.last-device{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.last-device h1{
+    font-size: 1rem;
+
+}
+
+.last-device table{
+    
+    max-width: 75rem;
+    margin: 1rem;
+    border-spacing: 0;
+        
+}
+.last-device table th{
+    text-align: center;
+    font-size: 0.8rem;
+    color: #3c3c3c;
+    font-weight: 400;
+    padding: 0.5rem 0.5rem;
+    padding-bottom: 0;
+    width: fit-content;
+    
+
+}
+.last-device table th:first-child{
+    border: none;
+}
+
+.last-device td{
+    padding: 0.5rem 0.5rem;
+    border: none;
+}
+.add-device table caption{
+    color: #787878;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* loading animation last added device*/
+
+/* Container for pulses */
+.pulse-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    gap: 1rem;
+  }
+  
+  /* Individual pulse */
+  .pulse {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #00ff1a;
+    animation-name: pulse1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  .pulse2 {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #00ff1a;
+    animation-name: pulse2;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  .pulse3 {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #00ff1a;
+    animation-name: pulse3;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  
+  /* Define the keyframes for pulsing animation */
+  @keyframes pulse1 {
+    0%, 100%{
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50%{
+        transform: scale(1.3);
+        opacity: 1;
+    }
+    
+
+  }
+  @keyframes pulse2 {
+    0% ,100%{
+        transform: scale(1.3);
+    }
+    33.3%{
+        transform: scale(1);
+        opacity: 0.3;
+    }
+  }
+  @keyframes pulse3 {
+    0% ,100%{
+        transform: scale(1.3);
+    }
+    66.6%{
+        transform: scale(1);
+        opacity: 0.3;
+    }
+  }
+
+
+  /* load error last device*/
+
+  .load-error-last-device{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  .load-error-last-device span{
+    color: red;
+    font-size: 1rem;
+  }
+
+  @media (min-width:1200px){
+    .add-device .header img{
+        display: none;
+    }
+  }

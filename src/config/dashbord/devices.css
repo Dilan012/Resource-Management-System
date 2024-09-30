@@ -1,0 +1,132 @@
+.devices{
+    margin: 1rem 2rem 1rem 1rem;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.8rem;
+    min-height: 100vh;
+    max-width: 100rem;
+
+    padding: 1rem;
+}
+.devices .header{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem;
+}
+.devices .header img{
+    width: 1rem;
+    
+}
+.devices > div{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 5rem;
+}
+.devices .search-bar{
+    width:40rem
+}
+.devices .filter{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+.devices .filter span{
+    font-weight: 600;
+    color: #727272;
+}
+.devices .filter select{
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px 0px #adadad;
+    border-radius: 0.5rem;
+}
+.devices .header span{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(101, 101, 101);
+    font-size: 1.5rem;
+    font-weight: 600;
+    }
+.devices .add-Link1 {
+    text-decoration: none;
+}
+.devices .add-Link1 img{
+    width: 1.1rem;
+    height: auto;
+}
+.devices .add-Link1 button{
+    background-color: #8fff87;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.9rem;
+    box-shadow: 0 1px 2px 0 #807f7f;
+}
+.devices table{
+    border-spacing: 0;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.devices table th{
+    text-align: left;
+    padding: 1rem;
+    color: #adadad;
+    background-color: #dfffdf;
+    font-size: 0.8rem;
+}
+.devices table th:first-child{
+    border-top-left-radius: 0.6rem;
+}
+.devices table th:last-child{
+    border-top-right-radius: 0.6rem;
+}
+.devices table tr{
+    margin: 1rem;
+    border: solid;
+    border-width: 5px;
+    
+}
+.devices table td{
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #c8c8c8;
+    padding: 1.5rem;
+    text-align: left;
+}
+.devices table td span{
+    padding: 0;
+}
+
+.devices .in-use{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.4rem 0.9rem;
+    background-color: rgb(209, 248, 205);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.devices .not-in-use{
+    border: none;
+    
+    background-color:#c6ffff;
+    border-radius: 1.5rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight:600;
+}
+
+@media (min-width:1200px){
+    .devices .header img{
+display: none;        
+    }
+}
